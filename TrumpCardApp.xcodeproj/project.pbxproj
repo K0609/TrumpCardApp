@@ -1,0 +1,493 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3C37B0878E9F3B6F6F961E47 /* Pods_TrumpCardApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43412026328B46699A9FD04B /* Pods_TrumpCardApp.framework */; };
+		4943FA582747D14D007823BB /* JokerSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4943FA572747D14D007823BB /* JokerSettingViewController.swift */; };
+		4943FA5A2747EBC2007823BB /* CustomizeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4943FA592747EBC1007823BB /* CustomizeSettingViewController.swift */; };
+		4943FA5E2747FC53007823BB /* CheckPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4943FA5D2747FC53007823BB /* CheckPermission.swift */; };
+		497D739D2728BB0F003EEA35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497D739C2728BB0F003EEA35 /* AppDelegate.swift */; };
+		497D739F2728BB0F003EEA35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497D739E2728BB0F003EEA35 /* SceneDelegate.swift */; };
+		497D73A12728BB0F003EEA35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497D73A02728BB0F003EEA35 /* ViewController.swift */; };
+		497D73A42728BB0F003EEA35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497D73A22728BB0F003EEA35 /* Main.storyboard */; };
+		497D73A62728BB16003EEA35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497D73A52728BB16003EEA35 /* Assets.xcassets */; };
+		497D73A92728BB16003EEA35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497D73A72728BB16003EEA35 /* LaunchScreen.storyboard */; };
+		497D73B1272A16E6003EEA35 /* draw.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 497D73B0272A16E6003EEA35 /* draw.mp3 */; };
+		497D73B3272A16F3003EEA35 /* shuffle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 497D73B2272A16F3003EEA35 /* shuffle.mp3 */; };
+		497D73B8272AA173003EEA35 /* CardsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497D73B7272AA173003EEA35 /* CardsModel.swift */; };
+		497D73BA272AA2A7003EEA35 /* CardsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497D73B9272AA2A7003EEA35 /* CardsList.swift */; };
+		497D73BC272C4219003EEA35 /* SoundFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497D73BB272C4219003EEA35 /* SoundFile.swift */; };
+		497D73C4272CCD97003EEA35 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497D73C3272CCD97003EEA35 /* SettingViewController.swift */; };
+		498594FC27C0DD6600B7D77D /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498594FB27C0DD6600B7D77D /* CreateViewController.swift */; };
+		499541B427A9EC1700BC5C17 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499541B227A9EC1700BC5C17 /* CollectionViewCell.swift */; };
+		499541B527A9EC1700BC5C17 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 499541B327A9EC1700BC5C17 /* CollectionViewCell.xib */; };
+		49E1F7E02732461D007F66FF /* RegularCardsSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E1F7DF2732461D007F66FF /* RegularCardsSettingViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1804A8F17B2CA0596DFD0560 /* Pods-TrumpCardApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrumpCardApp.debug.xcconfig"; path = "Target Support Files/Pods-TrumpCardApp/Pods-TrumpCardApp.debug.xcconfig"; sourceTree = "<group>"; };
+		43412026328B46699A9FD04B /* Pods_TrumpCardApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrumpCardApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4943FA572747D14D007823BB /* JokerSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokerSettingViewController.swift; sourceTree = "<group>"; };
+		4943FA592747EBC1007823BB /* CustomizeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeSettingViewController.swift; sourceTree = "<group>"; };
+		4943FA5D2747FC53007823BB /* CheckPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPermission.swift; sourceTree = "<group>"; };
+		497D73992728BB0F003EEA35 /* TrumpCardApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrumpCardApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		497D739C2728BB0F003EEA35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		497D739E2728BB0F003EEA35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		497D73A02728BB0F003EEA35 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		497D73A32728BB0F003EEA35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		497D73A52728BB16003EEA35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		497D73A82728BB16003EEA35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		497D73AA2728BB16003EEA35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		497D73B0272A16E6003EEA35 /* draw.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = draw.mp3; sourceTree = "<group>"; };
+		497D73B2272A16F3003EEA35 /* shuffle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shuffle.mp3; sourceTree = "<group>"; };
+		497D73B7272AA173003EEA35 /* CardsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsModel.swift; sourceTree = "<group>"; };
+		497D73B9272AA2A7003EEA35 /* CardsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsList.swift; sourceTree = "<group>"; };
+		497D73BB272C4219003EEA35 /* SoundFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundFile.swift; sourceTree = "<group>"; };
+		497D73C3272CCD97003EEA35 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		498594FB27C0DD6600B7D77D /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
+		499541B227A9EC1700BC5C17 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		499541B327A9EC1700BC5C17 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		49E1F7DF2732461D007F66FF /* RegularCardsSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularCardsSettingViewController.swift; sourceTree = "<group>"; };
+		99F6BE74F908A15667BEF939 /* Pods-TrumpCardApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrumpCardApp.release.xcconfig"; path = "Target Support Files/Pods-TrumpCardApp/Pods-TrumpCardApp.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		497D73962728BB0E003EEA35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C37B0878E9F3B6F6F961E47 /* Pods_TrumpCardApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		497D73902728BB0E003EEA35 = {
+			isa = PBXGroup;
+			children = (
+				497D739B2728BB0F003EEA35 /* TrumpCardApp */,
+				497D739A2728BB0F003EEA35 /* Products */,
+				4EDE8385CEFD7451F172F3A6 /* Pods */,
+				FFD92322427AE3C4005F7E4C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		497D739A2728BB0F003EEA35 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				497D73992728BB0F003EEA35 /* TrumpCardApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		497D739B2728BB0F003EEA35 /* TrumpCardApp */ = {
+			isa = PBXGroup;
+			children = (
+				497D73B4272A9DAC003EEA35 /* Model */,
+				497D73B5272A9DC3003EEA35 /* View */,
+				497D73B6272A9DCD003EEA35 /* Controller */,
+				497D73A72728BB16003EEA35 /* LaunchScreen.storyboard */,
+				497D73B0272A16E6003EEA35 /* draw.mp3 */,
+				497D73B2272A16F3003EEA35 /* shuffle.mp3 */,
+				497D73AA2728BB16003EEA35 /* Info.plist */,
+			);
+			path = TrumpCardApp;
+			sourceTree = "<group>";
+		};
+		497D73B4272A9DAC003EEA35 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				497D73B7272AA173003EEA35 /* CardsModel.swift */,
+				497D73B9272AA2A7003EEA35 /* CardsList.swift */,
+				497D73BB272C4219003EEA35 /* SoundFile.swift */,
+				4943FA5D2747FC53007823BB /* CheckPermission.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		497D73B5272A9DC3003EEA35 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				497D73A22728BB0F003EEA35 /* Main.storyboard */,
+				499541B327A9EC1700BC5C17 /* CollectionViewCell.xib */,
+				497D73A52728BB16003EEA35 /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		497D73B6272A9DCD003EEA35 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				499541B227A9EC1700BC5C17 /* CollectionViewCell.swift */,
+				497D73A02728BB0F003EEA35 /* ViewController.swift */,
+				4943FA572747D14D007823BB /* JokerSettingViewController.swift */,
+				497D73C3272CCD97003EEA35 /* SettingViewController.swift */,
+				497D739E2728BB0F003EEA35 /* SceneDelegate.swift */,
+				497D739C2728BB0F003EEA35 /* AppDelegate.swift */,
+				49E1F7DF2732461D007F66FF /* RegularCardsSettingViewController.swift */,
+				4943FA592747EBC1007823BB /* CustomizeSettingViewController.swift */,
+				498594FB27C0DD6600B7D77D /* CreateViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4EDE8385CEFD7451F172F3A6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1804A8F17B2CA0596DFD0560 /* Pods-TrumpCardApp.debug.xcconfig */,
+				99F6BE74F908A15667BEF939 /* Pods-TrumpCardApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FFD92322427AE3C4005F7E4C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				43412026328B46699A9FD04B /* Pods_TrumpCardApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		497D73982728BB0E003EEA35 /* TrumpCardApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 497D73AD2728BB16003EEA35 /* Build configuration list for PBXNativeTarget "TrumpCardApp" */;
+			buildPhases = (
+				0844A19104B0E1F813ADD56A /* [CP] Check Pods Manifest.lock */,
+				497D73952728BB0E003EEA35 /* Sources */,
+				497D73962728BB0E003EEA35 /* Frameworks */,
+				497D73972728BB0E003EEA35 /* Resources */,
+				839F5090BC8378278815DB5A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TrumpCardApp;
+			productName = TrumpCardApp;
+			productReference = 497D73992728BB0F003EEA35 /* TrumpCardApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		497D73912728BB0E003EEA35 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					497D73982728BB0E003EEA35 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+				};
+			};
+			buildConfigurationList = 497D73942728BB0E003EEA35 /* Build configuration list for PBXProject "TrumpCardApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 497D73902728BB0E003EEA35;
+			productRefGroup = 497D739A2728BB0F003EEA35 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				497D73982728BB0E003EEA35 /* TrumpCardApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		497D73972728BB0E003EEA35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				497D73B1272A16E6003EEA35 /* draw.mp3 in Resources */,
+				497D73B3272A16F3003EEA35 /* shuffle.mp3 in Resources */,
+				499541B527A9EC1700BC5C17 /* CollectionViewCell.xib in Resources */,
+				497D73A92728BB16003EEA35 /* LaunchScreen.storyboard in Resources */,
+				497D73A62728BB16003EEA35 /* Assets.xcassets in Resources */,
+				497D73A42728BB0F003EEA35 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0844A19104B0E1F813ADD56A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TrumpCardApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		839F5090BC8378278815DB5A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TrumpCardApp/Pods-TrumpCardApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TrumpCardApp/Pods-TrumpCardApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TrumpCardApp/Pods-TrumpCardApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		497D73952728BB0E003EEA35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				497D73A12728BB0F003EEA35 /* ViewController.swift in Sources */,
+				497D73BC272C4219003EEA35 /* SoundFile.swift in Sources */,
+				499541B427A9EC1700BC5C17 /* CollectionViewCell.swift in Sources */,
+				497D73B8272AA173003EEA35 /* CardsModel.swift in Sources */,
+				4943FA5A2747EBC2007823BB /* CustomizeSettingViewController.swift in Sources */,
+				497D739D2728BB0F003EEA35 /* AppDelegate.swift in Sources */,
+				497D739F2728BB0F003EEA35 /* SceneDelegate.swift in Sources */,
+				497D73C4272CCD97003EEA35 /* SettingViewController.swift in Sources */,
+				4943FA582747D14D007823BB /* JokerSettingViewController.swift in Sources */,
+				498594FC27C0DD6600B7D77D /* CreateViewController.swift in Sources */,
+				49E1F7E02732461D007F66FF /* RegularCardsSettingViewController.swift in Sources */,
+				497D73BA272AA2A7003EEA35 /* CardsList.swift in Sources */,
+				4943FA5E2747FC53007823BB /* CheckPermission.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		497D73A22728BB0F003EEA35 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				497D73A32728BB0F003EEA35 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		497D73A72728BB16003EEA35 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				497D73A82728BB16003EEA35 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		497D73AB2728BB16003EEA35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		497D73AC2728BB16003EEA35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		497D73AE2728BB16003EEA35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1804A8F17B2CA0596DFD0560 /* Pods-TrumpCardApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7MAYC6Q84V;
+				INFOPLIST_FILE = TrumpCardApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kazucode.TrumpCardApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		497D73AF2728BB16003EEA35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99F6BE74F908A15667BEF939 /* Pods-TrumpCardApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7MAYC6Q84V;
+				INFOPLIST_FILE = TrumpCardApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kazucode.TrumpCardApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		497D73942728BB0E003EEA35 /* Build configuration list for PBXProject "TrumpCardApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				497D73AB2728BB16003EEA35 /* Debug */,
+				497D73AC2728BB16003EEA35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		497D73AD2728BB16003EEA35 /* Build configuration list for PBXNativeTarget "TrumpCardApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				497D73AE2728BB16003EEA35 /* Debug */,
+				497D73AF2728BB16003EEA35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 497D73912728BB0E003EEA35 /* Project object */;
+}
