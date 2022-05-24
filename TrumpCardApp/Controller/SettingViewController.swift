@@ -34,6 +34,8 @@ class SettingViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         //画像をButtonサイズにfill & 角丸枠線
         for button in [spadeButton, heartButton, diamondButton, clubButton, jokerButton, customizeButton] {
             

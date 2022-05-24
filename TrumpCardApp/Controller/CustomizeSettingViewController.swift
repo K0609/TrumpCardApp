@@ -11,7 +11,8 @@ class CustomizeSettingViewController: UIViewController, UINavigationControllerDe
 
     
     @IBOutlet weak var collectionView: UICollectionView! //collentionView
-    @IBOutlet weak var settingOK: UIButton!
+    
+    var addCardButton: UIBarButtonItem!
     
     var cardsList = CardsList() //全カード情報となるcardsListをインスタンス化
     var displayCardsList: [CardsModel] = [] //ここの画面で使うカードのリストの箱を用意
@@ -21,26 +22,26 @@ class CustomizeSettingViewController: UIViewController, UINavigationControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //初期設定パターン① (アイコンを使うパターン)
+        addCardButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCardButtonPressed(_:)))
+        
+        //右側に１つ追加する場合
+        self.navigationItem.rightBarButtonItem = addCardButton
+
         
         //レイアウト設定
 //        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        settingOK.translatesAutoresizingMaskIntoConstraints = false
         
         let collectionViewTop = collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10)
         let collectionViewBottom = collectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 10)
         let collectionViewLeading = collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0)
         let collectionViewTrailing = collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0)
-        
-        let settingOKX = settingOK.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0)
-        let settingOKY = settingOK.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -30)
-        
+                
         NSLayoutConstraint.activate([
 //                                     collectionViewTop,
 //                                     collectionViewBottom,
 //                                     collectionViewLeading,
 //                                     collectionViewTrailing,
-                                     settingOKX,
-                                     settingOKY
                                     ])
 
         //各Delegateの設定
@@ -85,24 +86,23 @@ class CustomizeSettingViewController: UIViewController, UINavigationControllerDe
     }
     
     
-    //ボタン：設定完了（前の画面へ）
-    @IBAction func settingOK(_ sender: Any) {
-        
-        let NC = self.parent as! UINavigationController
-        let SettingVC = NC.viewControllers[1] as! SettingViewController
-        
-        cardsList.customizeList = displayCardsList
-        SettingVC.cardsList = self.cardsList
-        navigationController?.popViewController(animated: true)
-    }
+//    //ボタン：設定完了（前の画面へ）
+//    @IBAction func settingOK(_ sender: Any) {
+//
+//        let NC = self.parent as! UINavigationController
+//        let SettingVC = NC.viewControllers[1] as! SettingViewController
+//
+//        cardsList.customizeList = displayCardsList
+//        SettingVC.cardsList = self.cardsList
+//        navigationController?.popViewController(animated: true)
+//    }
     
     
     //ボタン：次の画面へ
-    @IBAction func toCreateVC(_ sender: Any) {
-        
+    @objc func addCardButtonPressed(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "toCreateVC", sender: nil)
-
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         let createVC = segue.destination as! CreateViewController

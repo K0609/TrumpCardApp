@@ -19,6 +19,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var textField: UITextField! //textField
     @IBOutlet weak var cardView: UIImageView! //imageView
     @IBOutlet weak var settingOK: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
     var delegate: CatchProtocol? //前の画面に値を渡すためのプロトコル
     var cardsList = CardsList() //全カード情報となるcardsListをインスタンス化
@@ -35,29 +36,35 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         cardView.translatesAutoresizingMaskIntoConstraints = false
         textField.translatesAutoresizingMaskIntoConstraints = false
         settingOK.translatesAutoresizingMaskIntoConstraints = false
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+
+        //間隔を設定
+        let btwButtonAndCard = -20
+        let itvBottom = -20
+        let itvLeading = self.view.frame.width * 0.1
+        let itvTrailing = self.view.frame.width * 0.1
+        let cardAspectRatio = 1.618
+
+        NSLayoutConstraint.activate([
+            cardView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: itvLeading),
+            cardView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -itvTrailing),
+            cardView.heightAnchor.constraint(equalTo: cardView.widthAnchor, multiplier: cardAspectRatio),
+//            cardView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+//            cardView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: self.view.frame.height * 0.05),
+            cardView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 0),
+            settingOK.trailingAnchor.constraint(equalTo: cardView.trailingAnchor),
+            settingOK.bottomAnchor.constraint(equalTo: cardView.topAnchor, constant: CGFloat(btwButtonAndCard)),
+            backButton.leadingAnchor.constraint(equalTo: cardView.leadingAnchor),
+            backButton.centerYAnchor.constraint(equalTo: settingOK.centerYAnchor, constant: 0),
+            textField.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 10),
+//            textField.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: CGFloat(itvBottom)),
+            textField.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 0),
+            textField.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: 0)
+        ])
         
-        let cardViewHeight = cardView.heightAnchor.constraint(equalToConstant: self.view.frame.height * 0.6)
-        let cardViewWidth = cardView.widthAnchor.constraint(equalTo: cardView.heightAnchor, multiplier: 1/1.618)
-        let cardViewX = cardView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
-        let cardViewY = cardView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: self.view.frame.height * 0.05)
-        
-        let textFieldTop = textField.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 30)
-        let textFieldLeading = textField.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 0)
-        let textFieldTrailing = textField.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: 0)
-        
-        let settingOKX = settingOK.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0)
-        let settingOKY = settingOK.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -30)
-        
-        NSLayoutConstraint.activate([cardViewHeight,
-                                     cardViewWidth,
-                                     cardViewX,
-                                     cardViewY,
-                                     textFieldTop,
-                                     textFieldLeading,
-                                     textFieldTrailing,
-                                     settingOKX,
-                                     settingOKY
-                                    ])
+        //
+//        textField.backgroundColor = UIColor.systemGray
+        textField.placeholder = "ここに文字もいれられるよう"
         
         //各Delegateの設定
         textField.delegate = self
@@ -72,6 +79,16 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         tapGesture1.delegate = self
         self.cardView.addGestureRecognizer(tapGesture1)
         
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if currentImage == nil {
+            showAlert(alertTitle: "Create card!!", alertMessage: "カード作っちゃお!!")
+
+        }
     }
     
     //ボタン：設定完了
@@ -90,17 +107,17 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
             //カードリストに新しく作成したカードを追加
             cardsList.customizeList.append(customizeCard)
             
-            //documentDirectoryにcurrentImageを保存
-            guard let imageData = currentImage.jpegData(compressionQuality: 1.0) else {
-                return
-            }
-
-            do {
-                try imageData.write(to: getFileURL(fileName: "customize_\(customizeCardNumber).jpg"))
-                print("Image saved.")
-            } catch {
-                print("Failed to save the image:", error)
-            }
+//            //documentDirectoryにcurrentImageを保存
+//            guard let imageData = currentImage.jpegData(compressionQuality: 1.0) else {
+//                return
+//            }
+//
+//            do {
+//                try imageData.write(to: getFileURL(fileName: "customize_\(customizeCardNumber).jpg"))
+//                print("Image saved.")
+//            } catch {
+//                print("Failed to save the image:", error)
+//            }
             
             //collectionViewに新カードが追加されたことを通知
             NotificationCenter.default.post(name: NSNotification.Name("reload"), object: nil)
@@ -271,6 +288,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     //機能：どこかタッチしたときにキーボードを閉じる
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        currentText = textField.text!
         textField.resignFirstResponder()
     }
     

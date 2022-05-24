@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var shuffleButton: UIButton!
     @IBOutlet weak var toSettingButton: UIButton!
     @IBOutlet weak var textLabel: UILabel!
-
+    
     var cardsList = CardsList() //全カード情報となるcardsListをインスタンス化
     var useCardsList = [CardsModel]() //cardsList中のCardsModelの"use"だけを入れる箱
     
@@ -23,6 +23,23 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //　ナビゲーションバーの背景色
+        self.navigationController?.navigationBar.barTintColor = .clear
+        // ナビゲーションバーのアイテムの色　（戻る　＜　とか　読み込みゲージとか）
+        self.navigationController?.navigationBar.tintColor = .systemGray
+        // ナビゲーションバーのテキストを変更する
+        self.navigationController?.navigationBar.titleTextAttributes = [
+        // 文字の色
+            .foregroundColor: UIColor.systemGray
+        ]
+        // Backボタンの変更
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(
+            title: "",
+            style: .plain,
+            target: nil,
+            action: nil
+        )
         
         //UserDefaultsからcardsList情報を呼び出し
         if UserDefaults.standard.object(forKey: "cardsList") != nil {
@@ -38,42 +55,37 @@ class ViewController: UIViewController {
         //画像の角丸&枠線
         marukadoWakusen(button: cardView)
         
+        
+//        //textLabelの見た目を整える
+//        textLabel.backgroundColor = UIColor.systemGray
+        
         //レイアウト設定
         cardView.translatesAutoresizingMaskIntoConstraints = false
         shuffleButton.translatesAutoresizingMaskIntoConstraints = false
         toSettingButton.translatesAutoresizingMaskIntoConstraints = false
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        let cardViewHeight = cardView.heightAnchor.constraint(equalToConstant: self.view.frame.height * 0.6)
-        let cardViewWidth = cardView.widthAnchor.constraint(equalTo: cardView.heightAnchor, multiplier: 1/1.618)
-        let cardViewX = cardView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
-        let cardViewY = cardView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: self.view.frame.height * 0.05)
-        
-        let toSettingLeading = toSettingButton.leadingAnchor.constraint(equalTo: cardView.leadingAnchor)
-        let toSettingTop = toSettingButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: self.view.frame.height * 0.15)
-        
-        let shuffleTrailing = shuffleButton.trailingAnchor.constraint(equalTo: cardView.trailingAnchor)
-        let shuffleTop = shuffleButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: self.view.frame.height * 0.15)
-        
-        let textLabelTop = textLabel.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 30)
-        let textLabelLeading = textLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 0)
-        let textLabelTrailing = textLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: 0)
+        //間隔を設定
+        let itvTopToButton = 5
+        let itvBottom = -5
+        let itvLeading = self.view.frame.width * 0.1
+        let itvTrailing = self.view.frame.width * 0.1
+        let cardAspectRatio = 1.618
 
-        //制約を有効化
         NSLayoutConstraint.activate([
-                                     cardViewHeight,
-                                     cardViewWidth,
-                                     cardViewX,
-                                     cardViewY,
-                                     toSettingLeading,
-                                     toSettingTop,
-                                     shuffleTrailing,
-                                     shuffleTop,
-                                     textLabelTop,
-                                     textLabelLeading,
-                                     textLabelTrailing
-                                     ])
-        
+            cardView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: itvLeading),
+            cardView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -itvTrailing),
+            cardView.heightAnchor.constraint(equalTo: cardView.widthAnchor, multiplier: cardAspectRatio),
+//            cardView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            cardView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: self.view.frame.height * 0.05),
+            toSettingButton.trailingAnchor.constraint(equalTo: cardView.trailingAnchor),
+            toSettingButton.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: CGFloat(itvTopToButton)),
+            shuffleButton.leadingAnchor.constraint(equalTo: cardView.leadingAnchor),
+            shuffleButton.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: CGFloat(itvTopToButton)),
+            textLabel.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 15),
+            textLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 0),
+            textLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: 0)
+            ])
     }
     
     
@@ -118,7 +130,6 @@ class ViewController: UIViewController {
         }
     }
     
-    
     //リセットボタンの処理
     @IBAction func resetGame(_ sender: Any) {
         
@@ -132,10 +143,10 @@ class ViewController: UIViewController {
     //設定画面へ遷移
     @IBAction func toSetting(_ sender: Any) {
         
-        let SettingVC = storyboard?.instantiateViewController(withIdentifier: "SettingVC") as! SettingViewController //Use Storyboard IDにチェックを入れる
+        let SettingCardsVC = storyboard?.instantiateViewController(withIdentifier: "SettingCardsVC") as! SettingCardsViewController //Use Storyboard IDにチェックを入れる
         
-        SettingVC.cardsList = self.cardsList //cardsListを渡す
-        navigationController?.pushViewController(SettingVC, animated: true)
+        SettingCardsVC.cardsList = self.cardsList //cardsListを渡す
+        navigationController?.pushViewController(SettingCardsVC, animated: true)
     
     }
     
@@ -155,6 +166,7 @@ class ViewController: UIViewController {
         
         self.useCardsList.shuffle()
 //        textLabel.isHidden = true
+        textLabel.text = ""
         soundFile.playSound(fileName: "shuffle", extentionName: "mp3")
         
     }

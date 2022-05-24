@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,7 @@
 		4943FA582747D14D007823BB /* JokerSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4943FA572747D14D007823BB /* JokerSettingViewController.swift */; };
 		4943FA5A2747EBC2007823BB /* CustomizeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4943FA592747EBC1007823BB /* CustomizeSettingViewController.swift */; };
 		4943FA5E2747FC53007823BB /* CheckPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4943FA5D2747FC53007823BB /* CheckPermission.swift */; };
+		4950404E280123650071F0CF /* SettingCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4950404D280123630071F0CF /* SettingCardsViewController.swift */; };
 		497D739D2728BB0F003EEA35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497D739C2728BB0F003EEA35 /* AppDelegate.swift */; };
 		497D739F2728BB0F003EEA35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497D739E2728BB0F003EEA35 /* SceneDelegate.swift */; };
 		497D73A12728BB0F003EEA35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497D73A02728BB0F003EEA35 /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 		4943FA572747D14D007823BB /* JokerSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokerSettingViewController.swift; sourceTree = "<group>"; };
 		4943FA592747EBC1007823BB /* CustomizeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeSettingViewController.swift; sourceTree = "<group>"; };
 		4943FA5D2747FC53007823BB /* CheckPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPermission.swift; sourceTree = "<group>"; };
+		4950404D280123630071F0CF /* SettingCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCardsViewController.swift; sourceTree = "<group>"; };
 		497D73992728BB0F003EEA35 /* TrumpCardApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrumpCardApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		497D739C2728BB0F003EEA35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		497D739E2728BB0F003EEA35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				49E1F7DF2732461D007F66FF /* RegularCardsSettingViewController.swift */,
 				4943FA592747EBC1007823BB /* CustomizeSettingViewController.swift */,
 				498594FB27C0DD6600B7D77D /* CreateViewController.swift */,
+				4950404D280123630071F0CF /* SettingCardsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -143,7 +146,6 @@
 				1804A8F17B2CA0596DFD0560 /* Pods-TrumpCardApp.debug.xcconfig */,
 				99F6BE74F908A15667BEF939 /* Pods-TrumpCardApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -276,6 +278,7 @@
 				497D73BC272C4219003EEA35 /* SoundFile.swift in Sources */,
 				499541B427A9EC1700BC5C17 /* CollectionViewCell.swift in Sources */,
 				497D73B8272AA173003EEA35 /* CardsModel.swift in Sources */,
+				4950404E280123650071F0CF /* SettingCardsViewController.swift in Sources */,
 				4943FA5A2747EBC2007823BB /* CustomizeSettingViewController.swift in Sources */,
 				497D739D2728BB0F003EEA35 /* AppDelegate.swift in Sources */,
 				497D739F2728BB0F003EEA35 /* SceneDelegate.swift in Sources */,
@@ -435,6 +438,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7MAYC6Q84V;
 				INFOPLIST_FILE = TrumpCardApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,6 +459,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7MAYC6Q84V;
 				INFOPLIST_FILE = TrumpCardApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
