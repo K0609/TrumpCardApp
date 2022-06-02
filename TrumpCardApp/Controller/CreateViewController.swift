@@ -26,6 +26,8 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     var currentImage: UIImage! //新たに追加しようとしているUIImage
     var currentText: String = "" //新たに追加しようとしているテキスト
     
+    var nowCropping = false //カード作成中かどうか（ViewDidAppearの判断用）
+    
     //カメラ、アルバムを使えるようにするCheckPermissionモデルをインスタンス化
     var checkPermission = CheckPermission()
     
@@ -40,7 +42,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
 
         //間隔を設定
         let btwButtonAndCard = -20
-        let itvBottom = -20
+//        let itvBottom = -20
         let itvLeading = self.view.frame.width * 0.1
         let itvTrailing = self.view.frame.width * 0.1
         let cardAspectRatio = 1.618
@@ -85,7 +87,8 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if currentImage == nil {
+
+        if (nowCropping == false && currentImage == nil) {
             showAlert(alertTitle: "Create card!!", alertMessage: "カード作っちゃお!!")
 
         }
@@ -208,13 +211,15 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     //カメラorアルバム機能を立ち上げるメソッド
     func createImagePicker(sourceType: UIImagePickerController.SourceType){
-        if UIImagePickerController.isSourceTypeAvailable(.camera){ //.cameraや.albumを指定
+        //Cropping開始
+        nowCropping = true
+//        if UIImagePickerController.isSourceTypeAvailable(.camera){ //.cameraや.albumを指定
             let picker = UIImagePickerController()
             picker.sourceType = sourceType //カメラなのか、アルバムなのか、何を立ち上げるかを引数から指定
             picker.delegate = self //デリゲートメソッドを設定
 //            picker.allowsEditing = false //編集を許す
             self.present(picker, animated: true, completion: nil) //立ち上げ
-        }
+//        }
     }
     
     
@@ -267,6 +272,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         self.cardView.image = image
         self.currentImage = image
+        nowCropping = false //cropping終了
         cropViewController.dismiss(animated: true, completion: nil)
     }
     
@@ -293,11 +299,11 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     
-    //画像ファイル名を受け取って、documentDirectory内のそのファイルのURLを返す関数
-    func getFileURL(fileName: String) -> URL {
-        let docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        return docDir.appendingPathComponent(fileName)
-    }
+//    //画像ファイル名を受け取って、documentDirectory内のそのファイルのURLを返す関数
+//    func getFileURL(fileName: String) -> URL {
+//        let docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+//        return docDir.appendingPathComponent(fileName)
+//    }
     
 
     /*
