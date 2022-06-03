@@ -46,8 +46,8 @@ class ViewController: UIViewController {
             cardsList = UserDefaults.standard.object(forKey: "cardsList") as! CardsList
         }
         
-        //シャッフル
-        shuffle(cardsList: cardsList.allList)
+//        //シャッフル
+//        shuffle(cardsList: cardsList.allList)
         
         //cardViewに画像がFillするように設定
         toScaletoFill(button: cardView)
@@ -91,17 +91,19 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        //cardsListから"use"のカードだけを抽出
-        useCardsList = []
-        for lst in [cardsList.spadeList, cardsList.heartList, cardsList.diamondList, cardsList.clubList, cardsList.jokerList, cardsList.customizeList] {
-            for card in lst {
-                if card.use == true {
-                    useCardsList.append(card)
-                }
-            }
-        }
+        //useCardsListから"use"のカードだけを抽出
+        useCardsList = cardsList.allList.filter({$0.use})
         
-//        shuffle(cardsList: useCardsList)
+//        useCardsList = []
+//        for lst in [cardsList.spadeList, cardsList.heartList, cardsList.diamondList, cardsList.clubList, cardsList.jokerList, cardsList.customizeList] {
+//            for card in lst {
+//                if card.use == true {
+//                    useCardsList.append(card)
+//                }
+//            }
+//        }
+        
+        shuffle(cardsList: useCardsList)
     }
 
 
