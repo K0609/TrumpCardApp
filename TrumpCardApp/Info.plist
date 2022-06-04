@@ -23,9 +23,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>カメラを使います</string>
+	<string>オリジナルのカードを作成するための画像の取得にカメラを使います</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>フォトライブラリを使います</string>
+	<string>オリジナルのカードを作成するための画像の取得にフォトライブラリを使います</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
