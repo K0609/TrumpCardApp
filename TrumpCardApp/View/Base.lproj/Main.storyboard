@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r8a-2t-elC">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -67,7 +68,6 @@
                         <outlet property="shuffleButton" destination="zym-36-n1c" id="4CA-ot-lrT"/>
                         <outlet property="textLabel" destination="nFI-PJ-B6h" id="FVr-0H-atx"/>
                         <outlet property="toSettingButton" destination="IQQ-XQ-EMA" id="NsD-SP-tov"/>
-                        <segue destination="ULR-LZ-61P" kind="show" identifier="toSettingVC" id="huh-61-E3T"/>
                         <segue destination="7v2-p4-pHf" kind="show" id="0f6-RO-JKy"/>
                     </connections>
                 </viewController>
@@ -92,289 +92,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tLQ-zh-hQV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2868" y="919"/>
-        </scene>
-        <!--Setting-->
-        <scene sceneID="XKh-4w-2Jd">
-            <objects>
-                <viewController storyboardIdentifier="SettingVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ULR-LZ-61P" customClass="SettingViewController" customModule="TrumpCardApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zdk-eD-opj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="x 13" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MeL-n5-ZZG">
-                                <rect key="frame" x="229" y="389" width="31" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="x 13" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6n-Cq-Xap">
-                                <rect key="frame" x="229" y="311" width="31" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" x 13" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LvA-8M-nQz">
-                                <rect key="frame" x="225" y="475" width="35" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pcs-nk-9Yz">
-                                <rect key="frame" x="145" y="187" width="70" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="spade_0"/>
-                                <connections>
-                                    <action selector="toRCSettingButton:" destination="ULR-LZ-61P" eventType="touchUpInside" id="e2Y-Ea-jM0"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYb-jl-Baz">
-                                <rect key="frame" x="145" y="364" width="70" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="heart_0"/>
-                                <connections>
-                                    <action selector="toRCSettingButton:" destination="ULR-LZ-61P" eventType="touchUpInside" id="mL9-aU-sc1"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKF-l3-mkr">
-                                <rect key="frame" x="145" y="286" width="70" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="diamond_0"/>
-                                <connections>
-                                    <action selector="toRCSettingButton:" destination="ULR-LZ-61P" eventType="touchUpInside" id="bp6-Vg-JAN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbD-lF-a2k">
-                                <rect key="frame" x="145" y="450" width="70" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="club_0"/>
-                                <connections>
-                                    <action selector="toRCSettingButton:" destination="ULR-LZ-61P" eventType="touchUpInside" id="vsg-ok-D1O"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzO-MA-Sas">
-                                <rect key="frame" x="156" y="644" width="48" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="joker_0"/>
-                                <connections>
-                                    <action selector="toJokerSettingButton:" destination="ULR-LZ-61P" eventType="touchUpInside" id="XTQ-KE-5uZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xj-YS-MwP">
-                                <rect key="frame" x="156" y="541" width="48" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="customize_0"/>
-                                <connections>
-                                    <action selector="toCustomizeSettingButton:" destination="ULR-LZ-61P" eventType="touchUpInside" id="SLN-3W-6cU"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PP8-Az-3Z4">
-                                <rect key="frame" x="194.5" y="808" width="25" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" systemColor="systemGrayColor"/>
-                                <state key="normal" image="checkmark.circle" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                </state>
-                                <connections>
-                                    <action selector="settingOK:" destination="ULR-LZ-61P" eventType="touchUpInside" id="Mam-Vl-LJo"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="x 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyy-L2-qcF">
-                                <rect key="frame" x="224" y="669" width="23" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="x 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opd-F8-Ows">
-                                <rect key="frame" x="219" y="566" width="47" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="x 13" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPr-YF-vgq">
-                                <rect key="frame" x="229" y="212" width="31" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="1Vd-MR-0qy"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Setting" id="7Yr-Mc-Zav">
-                        <barButtonItem key="backBarButtonItem" title=" " id="5EP-PX-UXA"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="clubButton" destination="MbD-lF-a2k" id="jve-9W-vb6"/>
-                        <outlet property="clubLabel" destination="LvA-8M-nQz" id="18Y-Fs-s0G"/>
-                        <outlet property="customizeButton" destination="5xj-YS-MwP" id="DaC-rg-rBt"/>
-                        <outlet property="customizeLabel" destination="Opd-F8-Ows" id="Kh2-Lt-lEx"/>
-                        <outlet property="diamondButton" destination="eKF-l3-mkr" id="S1d-g7-z3N"/>
-                        <outlet property="diamondLabel" destination="T6n-Cq-Xap" id="fOK-zb-6SB"/>
-                        <outlet property="heartButton" destination="zYb-jl-Baz" id="ecE-Nu-Y03"/>
-                        <outlet property="heartLabel" destination="MeL-n5-ZZG" id="gCv-aR-ZOe"/>
-                        <outlet property="jokerButton" destination="zzO-MA-Sas" id="2w9-K5-eI1"/>
-                        <outlet property="jokerLabel" destination="oyy-L2-qcF" id="0np-qC-KqE"/>
-                        <outlet property="settingOK" destination="PP8-Az-3Z4" id="ld6-Za-WPG"/>
-                        <outlet property="spadeButton" destination="Pcs-nk-9Yz" id="ASl-Ca-Ltg"/>
-                        <outlet property="spadeLabel" destination="zPr-YF-vgq" id="FjF-06-yJJ"/>
-                        <segue destination="bTH-Eb-UXa" kind="show" id="TJR-XT-ICe"/>
-                        <segue destination="V0D-YK-Sd6" kind="show" id="QpO-Uf-4bs"/>
-                        <segue destination="SEq-Vp-EOg" kind="show" id="IjR-jF-HhI"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="33M-DJ-r8H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3588.4057971014495" y="123.88392857142857"/>
-        </scene>
-        <!--Select Cards-->
-        <scene sceneID="RAR-yQ-cPY">
-            <objects>
-                <viewController storyboardIdentifier="RCSettingVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bTH-Eb-UXa" customClass="RegularCardsSettingViewController" customModule="TrumpCardApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="l4k-2K-bXK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3u3-0E-d0h">
-                                <rect key="frame" x="194.5" y="808" width="25" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" systemColor="systemGrayColor"/>
-                                <state key="normal" image="checkmark.circle" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                </state>
-                                <connections>
-                                    <action selector="settingOk:" destination="bTH-Eb-UXa" eventType="touchUpInside" id="1Rt-l7-Q1i"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qPg-z0-r4R">
-                                <rect key="frame" x="261" y="650" width="60" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EPm-ft-eKb">
-                                <rect key="frame" x="177" y="650" width="60" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xzg-ge-udR">
-                                <rect key="frame" x="89" y="650" width="60" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qfN-jc-KuJ">
-                                <rect key="frame" x="261" y="546" width="60" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kcs-3B-Gil">
-                                <rect key="frame" x="177" y="546" width="60" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" tag="7" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rdj-iJ-sm2">
-                                <rect key="frame" x="89" y="546" width="60" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" tag="8" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CLp-3Z-Y1P">
-                                <rect key="frame" x="261" y="442" width="60" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" tag="9" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jIH-rt-sTY">
-                                <rect key="frame" x="177" y="442" width="60" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" tag="10" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Ze-za-WGI">
-                                <rect key="frame" x="261" y="338" width="60" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" tag="11" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZRa-0h-nVR">
-                                <rect key="frame" x="89" y="442" width="60" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" tag="12" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u3z-9y-Lgg">
-                                <rect key="frame" x="177" y="338" width="60" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" tag="13" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HOH-sw-G6n">
-                                <rect key="frame" x="89" y="338" width="60" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rxv-RQ-6Ae">
-                                <rect key="frame" x="145" y="129" width="125" height="201"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="kOe-9q-sy6"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Select Cards" id="qd4-IQ-9BB"/>
-                    <connections>
-                        <outlet property="card1" destination="Rxv-RQ-6Ae" id="EcT-go-0el"/>
-                        <outlet property="card10" destination="5Ze-za-WGI" id="gQd-1S-LYR"/>
-                        <outlet property="card11" destination="ZRa-0h-nVR" id="oCX-yF-pEg"/>
-                        <outlet property="card12" destination="u3z-9y-Lgg" id="dlZ-vr-inT"/>
-                        <outlet property="card13" destination="HOH-sw-G6n" id="WYz-pN-4dC"/>
-                        <outlet property="card2" destination="qPg-z0-r4R" id="hAX-Ec-Ycb"/>
-                        <outlet property="card3" destination="EPm-ft-eKb" id="SaL-wc-q0a"/>
-                        <outlet property="card4" destination="Xzg-ge-udR" id="GWk-4B-Ngr"/>
-                        <outlet property="card5" destination="qfN-jc-KuJ" id="F11-XY-Pqe"/>
-                        <outlet property="card6" destination="kcs-3B-Gil" id="kXL-d5-vQg"/>
-                        <outlet property="card7" destination="rdj-iJ-sm2" id="6dm-67-xRg"/>
-                        <outlet property="card8" destination="CLp-3Z-Y1P" id="lZJ-p8-UJM"/>
-                        <outlet property="card9" destination="jIH-rt-sTY" id="DIU-0R-UEL"/>
-                        <outlet property="settingOK" destination="3u3-0E-d0h" id="mLg-PD-9bb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="p4g-hq-SEj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4324.6376811594209" y="123.88392857142857"/>
-        </scene>
-        <!--Select Cards-->
-        <scene sceneID="yod-SD-gpo">
-            <objects>
-                <viewController storyboardIdentifier="JokerSettingVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="V0D-YK-Sd6" customClass="JokerSettingViewController" customModule="TrumpCardApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="s67-XE-b7t">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="joker_1" translatesAutoresizingMaskIntoConstraints="NO" id="X0K-d3-amr">
-                                <rect key="frame" x="84" y="288" width="81" height="125"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNA-ne-c8i">
-                                <rect key="frame" x="194.5" y="808" width="25" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" systemColor="systemGrayColor"/>
-                                <state key="normal" image="checkmark.circle" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                </state>
-                                <connections>
-                                    <action selector="settingOK:" destination="V0D-YK-Sd6" eventType="touchUpInside" id="R15-cM-g8r"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="joker_2" translatesAutoresizingMaskIntoConstraints="NO" id="O0x-SA-m2J">
-                                <rect key="frame" x="211" y="288" width="81" height="125"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="2fQ-xQ-dAU"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Select Cards" id="ggb-jj-DnD">
-                        <barButtonItem key="backBarButtonItem" title=" " id="0jV-UU-zAC"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="card1" destination="X0K-d3-amr" id="hxw-Kx-Fom"/>
-                        <outlet property="card2" destination="O0x-SA-m2J" id="E82-bP-jps"/>
-                        <outlet property="settingOK" destination="kNA-ne-c8i" id="rcZ-RR-d9o"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iW1-b6-Kex" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4325" y="835"/>
+            <point key="canvasLocation" x="3593" y="124"/>
         </scene>
         <!--Create Your Card!!-->
         <scene sceneID="6uS-Yt-wgC">
@@ -424,7 +142,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sUg-ct-sdJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4324.6376811594209" y="1515.4017857142856"/>
+            <point key="canvasLocation" x="4328" y="124"/>
         </scene>
         <!--Create View Controller-->
         <scene sceneID="TU4-mD-2w3">
@@ -484,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uge-1A-cHr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5195.652173913044" y="1514.7321428571429"/>
+            <point key="canvasLocation" x="5067" y="124"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cze-lW-97B">
@@ -505,24 +223,12 @@
             <point key="canvasLocation" x="1957.9710144927537" y="123.88392857142857"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="IF0-yq-O1C"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="SelectImage" width="714" height="1075"/>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
-        <image name="checkmark.circle" catalog="system" width="128" height="121"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="club_0" width="256" height="256"/>
-        <image name="customize_0" width="668" height="999"/>
         <image name="delete.left" catalog="system" width="128" height="104"/>
-        <image name="diamond_0" width="256" height="256"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
-        <image name="heart_0" width="256" height="256"/>
-        <image name="joker_0" width="600" height="960"/>
-        <image name="joker_1" width="1012" height="1618"/>
-        <image name="joker_2" width="1012" height="1618"/>
-        <image name="spade_0" width="256" height="256"/>
         <image name="ura" width="1012" height="1618"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
