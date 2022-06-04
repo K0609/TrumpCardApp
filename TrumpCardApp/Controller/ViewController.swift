@@ -92,16 +92,21 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         //useCardsListから"use"のカードだけを抽出
-        useCardsList = cardsList.allList.filter({$0.use})
+//        useCardsList = cardsList.allList.filter({$0.use})
         
-//        useCardsList = []
-//        for lst in [cardsList.spadeList, cardsList.heartList, cardsList.diamondList, cardsList.clubList, cardsList.jokerList, cardsList.customizeList] {
-//            for card in lst {
-//                if card.use == true {
-//                    useCardsList.append(card)
-//                }
-//            }
-//        }
+        useCardsList = []
+        for lst in [cardsList.spadeList,
+                    cardsList.heartList,
+                    cardsList.diamondList,
+                    cardsList.clubList,
+                    cardsList.jokerList,
+                    cardsList.customizeList] {
+            for card in lst {
+                if card.use == true {
+                    useCardsList.append(card)
+                }
+            }
+        }
         
         shuffle(cardsList: useCardsList)
     }

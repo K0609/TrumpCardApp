@@ -181,7 +181,7 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate 
         imageViewsList = spadeImageViewsList + heartImageViewsList + diamondImageViewsList + clubImageViewsList + jokerImageViewsList + customizeImageViewsList
         
         //すべてのカードをオートレイアウト設定してviewに追加
-        for (key, val) in imageViewsdic {
+        for (_, val) in imageViewsdic {
             for imageView in val {
                 
                 imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -268,13 +268,10 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate 
         
         //各カードのwidthはheightから決まるので、横に等間隔に配置する記述に変更
         //各柄2~kingのレイアウト設定
-        for (key, val) in imageViewsdic {
+        for (key, _) in imageViewsdic {
             
             let egara = ["spade", "heart", "diamond", "club"]
             if egara.contains(key) {
-                print(key)
-                print(imageViewsdic[key]!.count)
-                print(val)
                 
                 for j in 1..<imageViewsdic[key]!.count {
                     
