@@ -27,23 +27,7 @@ class CustomizeSettingViewController: UIViewController, UINavigationControllerDe
         
         //右側に１つ追加する場合
         self.navigationItem.rightBarButtonItem = addCardButton
-
         
-        //レイアウト設定
-//        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let collectionViewTop = collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10)
-        let collectionViewBottom = collectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 10)
-        let collectionViewLeading = collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0)
-        let collectionViewTrailing = collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0)
-                
-        NSLayoutConstraint.activate([
-//                                     collectionViewTop,
-//                                     collectionViewBottom,
-//                                     collectionViewLeading,
-//                                     collectionViewTrailing,
-                                    ])
-
         //各Delegateの設定
         collectionView.delegate = self
         collectionView.dataSource = self

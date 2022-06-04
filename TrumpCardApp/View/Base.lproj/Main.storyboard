@@ -68,7 +68,7 @@
                         <outlet property="shuffleButton" destination="zym-36-n1c" id="4CA-ot-lrT"/>
                         <outlet property="textLabel" destination="nFI-PJ-B6h" id="FVr-0H-atx"/>
                         <outlet property="toSettingButton" destination="IQQ-XQ-EMA" id="NsD-SP-tov"/>
-                        <segue destination="7v2-p4-pHf" kind="show" id="0f6-RO-JKy"/>
+                        <segue destination="7v2-p4-pHf" kind="show" identifier="toSettingCardsVC" id="0f6-RO-JKy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -87,7 +87,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="CEW-B5-1TZ"/>
                     <connections>
-                        <segue destination="SEq-Vp-EOg" kind="show" id="IF0-yq-O1C"/>
+                        <segue destination="SEq-Vp-EOg" kind="show" identifier="toCustomizeSettingVC" id="IF0-yq-O1C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tLQ-zh-hQV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

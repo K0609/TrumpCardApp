@@ -67,7 +67,7 @@ class ViewController: UIViewController {
         
         //間隔を設定
         let itvTopToButton = 5
-        let itvBottom = -5
+//        let itvBottom = -5
         let itvLeading = self.view.frame.width * 0.1
         let itvTrailing = self.view.frame.width * 0.1
         let cardAspectRatio = 1.618
