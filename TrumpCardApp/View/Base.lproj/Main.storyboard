@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r8a-2t-elC">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -94,7 +93,7 @@
             </objects>
             <point key="canvasLocation" x="3593" y="124"/>
         </scene>
-        <!--Create Your Card!!-->
+        <!--Customize Setting View Controller-->
         <scene sceneID="6uS-Yt-wgC">
             <objects>
                 <viewController storyboardIdentifier="CustomizeSettingVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SEq-Vp-EOg" customClass="CustomizeSettingViewController" customModule="TrumpCardApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -132,7 +131,7 @@
                             <constraint firstItem="Iun-Ys-Q5J" firstAttribute="top" secondItem="b8y-9t-x0e" secondAttribute="top" constant="10" id="yrB-pk-4cU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Create Your Card!!" id="MNI-Zd-YZf">
+                    <navigationItem key="navigationItem" id="MNI-Zd-YZf">
                         <barButtonItem key="backBarButtonItem" title=" " id="llm-kX-yyh"/>
                     </navigationItem>
                     <connections>

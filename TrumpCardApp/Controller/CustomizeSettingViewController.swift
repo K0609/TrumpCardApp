@@ -22,6 +22,20 @@ class CustomizeSettingViewController: UIViewController, UINavigationControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // ナビゲーションタイトル
+        self.navigationItem.title = "Your Original Cards"
+        // ナビゲーションバーのテキストを変更する
+        self.navigationController?.navigationBar.titleTextAttributes = [
+        // 文字の色
+            .foregroundColor: UIColor.systemGray
+        ]
+        // Backボタンの変更
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(
+            title: "",
+            style: .plain,
+            target: nil,
+            action: nil
+        )
         //初期設定パターン① (アイコンを使うパターン)
         addCardButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCardButtonPressed(_:)))
         

@@ -93,7 +93,13 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate 
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        // ナビゲーションタイトル
+        self.navigationItem.title = "Setting"
+        // ナビゲーションバーのテキストを変更する
+        self.navigationController?.navigationBar.titleTextAttributes = [
+        // 文字の色
+            .foregroundColor: UIColor.systemGray
+        ]
         // Backボタンの変更
         self.navigationItem.backBarButtonItem = UIBarButtonItem(
             title: "",

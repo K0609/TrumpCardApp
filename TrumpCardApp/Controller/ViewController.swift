@@ -28,6 +28,8 @@ class ViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = .clear
         // ナビゲーションバーのアイテムの色　（戻る　＜　とか　読み込みゲージとか）
         self.navigationController?.navigationBar.tintColor = .systemGray
+        // ナビゲーションタイトル
+        self.navigationItem.title = ""
         // ナビゲーションバーのテキストを変更する
         self.navigationController?.navigationBar.titleTextAttributes = [
         // 文字の色
