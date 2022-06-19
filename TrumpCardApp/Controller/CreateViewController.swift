@@ -89,7 +89,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.viewDidAppear(animated)
 
         if (nowCropping == false && currentImage == nil) {
-            showAlert(alertTitle: "Create card!!", alertMessage: "カード作っちゃお!!")
+            showAlert(alertTitle: "Make your original card!!", alertMessage: "カード作っちゃお!!")
 
         }
     }
