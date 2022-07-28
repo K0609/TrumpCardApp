@@ -4,11 +4,13 @@
 //
 //  Created by Misawa Kazushi on 2021/11/19.
 //
-
+import GoogleMobileAds
 import UIKit
 
-class CustomizeSettingViewController: UIViewController, UINavigationControllerDelegate, CatchProtocol {
-
+class CustomizeSettingViewController: UIViewController, UINavigationControllerDelegate, CatchProtocol, GADBannerViewDelegate {
+    
+    //admobのバナー
+    var bannerView: GADBannerView!
     
     @IBOutlet weak var collectionView: UICollectionView! //collentionView
     
@@ -21,6 +23,20 @@ class CustomizeSettingViewController: UIViewController, UINavigationControllerDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //バナー
+        bannerView = GADBannerView(adSize: GADAdSizeBanner)
+        addBannerViewToView(bannerView)
+        
+        //GADBannerVIewのプロバティ
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        
+        //広告を読み込む
+        bannerView.load(GADRequest())
+        
+        //広告イベント
+        bannerView.delegate = self
 
         // ナビゲーションタイトル
         self.navigationItem.title = "Your Original Cards"
@@ -193,6 +209,53 @@ extension CustomizeSettingViewController: UICollectionViewDelegateFlowLayout {
     //レイアウト設定：各セル列間の余白
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+    
+    //バナー
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        NSLayoutConstraint.activate([
+            bannerView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            bannerView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0)
+        ])
+    
+    }
+
+    
+    //各種バナー広告イベントの実装
+    
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+        //広告が取得されるまで、ビュー階層に GADBannerView を追加するのを遅らせたい場合
+        addBannerViewToView(bannerView)
+        
+        //バナー広告をアニメーション表示
+        bannerView.alpha = 0
+        UIView.animate(withDuration: 1, animations: {
+          bannerView.alpha = 1
+        })
+
+//      print("bannerViewDidReceiveAd")
+    }
+
+    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+//      print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+
+    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
+//      print("bannerViewDidRecordImpression")
+    }
+
+    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
+//      print("bannerViewWillPresentScreen")
+    }
+
+    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
+//      print("bannerViewWillDIsmissScreen")
+    }
+
+    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
+//      print("bannerViewDidDismissScreen")
     }
 
 }

@@ -4,10 +4,13 @@
 //
 //  Created by Misawa Kazushi on 2022/04/09.
 //
-
+import GoogleMobileAds
 import UIKit
 
-class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate {
+class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate, GADBannerViewDelegate {
+    
+    //admobのバナー
+    var bannerView: GADBannerView!
     
     var cardsList = CardsList() //cardsList
 
@@ -80,7 +83,9 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate 
     let spacer6 = UIView()
     
     var imageViewsdic: [String: [UIImageView]] = [:]
+    var imageViewsdicWithoutCustomize: [String: [UIImageView]] = [:]
     var imageViewsList: [UIImageView] = []
+    var imageViewsListWithoutCustomize: [UIImageView] = []
     var spadeImageViewsList: [UIImageView] = []
     var heartImageViewsList: [UIImageView] = []
     var diamondImageViewsList: [UIImageView] = []
@@ -93,6 +98,21 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate 
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        //バナー
+        bannerView = GADBannerView(adSize: GADAdSizeBanner)
+        addBannerViewToView(bannerView)
+        
+        //GADBannerVIewのプロバティ
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        
+        //広告を読み込む
+        bannerView.load(GADRequest())
+        
+        //広告イベント
+        bannerView.delegate = self
+        
         // ナビゲーションタイトル
         self.navigationItem.title = "Setting"
         // ナビゲーションバーのテキストを変更する
@@ -184,7 +204,16 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate 
                          "customize": customizeImageViewsList
         ]
         
+        imageViewsdicWithoutCustomize = ["spade": spadeImageViewsList,
+                                         "heart": heartImageViewsList,
+                                         "diamond": diamondImageViewsList,
+                                         "club": clubImageViewsList,
+                                         "joker": jokerImageViewsList,
+        ]
+
         imageViewsList = spadeImageViewsList + heartImageViewsList + diamondImageViewsList + clubImageViewsList + jokerImageViewsList + customizeImageViewsList
+        
+        imageViewsListWithoutCustomize = spadeImageViewsList + heartImageViewsList + diamondImageViewsList + clubImageViewsList + jokerImageViewsList
         
         //すべてのカードをオートレイアウト設定してviewに追加
         for (_, val) in imageViewsdic {
@@ -209,10 +238,10 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate 
         //レイアウト設定
         //間隔を設定
         let itvTop = self.view.frame.height * 0.05
-        let itvBottom = self.view.frame.height * 0.05
+        let itvBottom = self.view.frame.height * 0.05 + 50
         let itvLeading = self.view.frame.width * 0.1
         let itvTrailing = self.view.frame.width * 0.1
-        let itvBtwMarksHeight = self.view.frame.height * 0.020
+        let itvBtwMarksHeight = self.view.frame.height * 0.010
 //        let itvInMarkHeight = self.view.frame.height * 0.025
 //        let itvInMarkWidth = self.view.frame.height * 0.01
         let cardAspectRatio = 1.618
@@ -229,36 +258,39 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate 
         //heart1のレイアウト設定
         activateList.append(heart1ImageView.topAnchor.constraint(equalTo: spade1ImageView.bottomAnchor, constant: itvBtwMarksHeight))
         activateList.append(heart1ImageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: itvLeading))
+        activateList.append(heart1ImageView.heightAnchor.constraint(equalTo: spade1ImageView.heightAnchor, multiplier: 1))
         activateList.append(heart1ImageView.widthAnchor.constraint(equalTo: heart1ImageView.heightAnchor, multiplier: 1/cardAspectRatio))
 
         //diamond1のレイアウト設定
         activateList.append(diamond1ImageView.topAnchor.constraint(equalTo: heart1ImageView.bottomAnchor, constant: itvBtwMarksHeight))
         activateList.append(diamond1ImageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: itvLeading))
+        activateList.append(diamond1ImageView.heightAnchor.constraint(equalTo: spade1ImageView.heightAnchor, multiplier: 1))
         activateList.append(diamond1ImageView.widthAnchor.constraint(equalTo: diamond1ImageView.heightAnchor, multiplier: 1/cardAspectRatio))
 
         //club1のレイアウト設定
         activateList.append(club1ImageView.topAnchor.constraint(equalTo: diamond1ImageView.bottomAnchor, constant: itvBtwMarksHeight))
         activateList.append(club1ImageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: itvLeading))
+        activateList.append(diamond1ImageView.heightAnchor.constraint(equalTo: spade1ImageView.heightAnchor, multiplier: 1))
         activateList.append(club1ImageView.widthAnchor.constraint(equalTo: club1ImageView.heightAnchor, multiplier: 1/cardAspectRatio))
         
         //joker1のレイアウト設定
         activateList.append(joker1ImageView.topAnchor.constraint(equalTo: club1ImageView.bottomAnchor, constant: itvBtwMarksHeight))
         activateList.append(joker1ImageView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -itvBottom))
         activateList.append(joker1ImageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: itvLeading))
-        activateList.append(joker1ImageView.widthAnchor.constraint(equalTo: club1ImageView.widthAnchor, multiplier: 1))
-        activateList.append(joker1ImageView.heightAnchor.constraint(equalTo: club1ImageView.heightAnchor, multiplier: 1))
+        activateList.append(joker1ImageView.heightAnchor.constraint(equalTo: spade1ImageView.heightAnchor, multiplier: 1))
+        activateList.append(joker1ImageView.widthAnchor.constraint(equalTo: joker1ImageView.heightAnchor, multiplier: 1/cardAspectRatio))
 
         //joker2のレイアウト設定
         activateList.append(joker2ImageView.topAnchor.constraint(equalTo: joker1ImageView.topAnchor, constant: 0))
         activateList.append(joker2ImageView.leadingAnchor.constraint(equalTo: spacerList[0].trailingAnchor, constant: 0))
-        activateList.append(joker2ImageView.widthAnchor.constraint(equalTo: joker1ImageView.widthAnchor, multiplier: 1))
-        activateList.append(joker2ImageView.heightAnchor.constraint(equalTo: joker1ImageView.heightAnchor, multiplier: 1))
+        activateList.append(joker2ImageView.heightAnchor.constraint(equalTo: spade1ImageView.heightAnchor, multiplier: 1))
+        activateList.append(joker2ImageView.widthAnchor.constraint(equalTo: joker2ImageView.heightAnchor, multiplier: 1/cardAspectRatio))
         
         //customize0のレイアウト設定
-        activateList.append(customize0ImageView.topAnchor.constraint(equalTo: joker2ImageView.topAnchor, constant: 0))
+        activateList.append(customize0ImageView.topAnchor.constraint(equalTo: joker1ImageView.topAnchor, constant: 0))
         activateList.append(customize0ImageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -itvTrailing))
-        activateList.append(customize0ImageView.widthAnchor.constraint(equalTo: joker1ImageView.widthAnchor, multiplier: 1))
-        activateList.append(customize0ImageView.heightAnchor.constraint(equalTo: joker1ImageView.heightAnchor, multiplier: 1))
+        activateList.append(customize0ImageView.heightAnchor.constraint(equalTo: spade1ImageView.heightAnchor, multiplier: 1))
+        activateList.append(customize0ImageView.widthAnchor.constraint(equalTo: customize0ImageView.heightAnchor, multiplier: 1/cardAspectRatio))
         
         //spacerのレイアウト設定
         activateList.append(spacer1.leadingAnchor.constraint(equalTo: spade1ImageView.trailingAnchor, constant: 0))
@@ -339,11 +371,11 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate 
         
         
         //各カードのscaleToFill & 丸角枠線 & tapgesture設定
-        //spade1から順に、tagを0から設定
-        for i in 0..<imageViewsList.count {
+        //【spade~jokerの設定】spade1から順に、tagを0から設定
+        for i in 0..<imageViewsListWithoutCustomize.count {
             
             let tag = i
-            let imageView = imageViewsList[i]
+            let imageView = imageViewsListWithoutCustomize[i]
             
             //scaleToFillにして丸角と枠線をつける設定
             imageView.contentMode = .scaleToFill
@@ -360,23 +392,46 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate 
             tapGesture.delegate = self
             imageView.addGestureRecognizer(tapGesture)
             
-            //エースの場合はlongTapも設定
-            let aceImageViews = [spade1ImageView, heart1ImageView, diamond1ImageView, club1ImageView]
-            if aceImageViews.contains(imageView) {
-                //エース用にlongTapGestureを作成
-                let longPressGesture = UILongPressGestureRecognizer(
-                    target: self,
-                    action: #selector(SettingCardsViewController.longPressAction(_:)))
-                longPressGesture.delegate = self
-                imageView.addGestureRecognizer(longPressGesture)
-            }
+            //longTapも設定
+            let longPressGesture = UILongPressGestureRecognizer(
+                target: self,
+                action: #selector(SettingCardsViewController.longPressAction(_:)))
+            longPressGesture.delegate = self
+            imageView.addGestureRecognizer(longPressGesture)
+            
         }
         
-        for i in 0..<(imageViewsList.count - 1) {
+        //全カードの透明度表示設定（ゲームに使用or不使用の表示設定）
+        for i in 0..<(imageViewsListWithoutCustomize.count - 1) {
             
             switchAlpha(tag: i)
         
         }
+        
+        
+        //customize0ImageViewの設定
+        //scaleToFillにして丸角と枠線をつける設定
+        let imageView = customize0ImageView
+        imageView.contentMode = .scaleToFill
+        
+        //tapgesture設定
+        imageView.tag = 54
+        imageView.isUserInteractionEnabled = true
+        
+        //tapの設定
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(SettingCardsViewController.customize0TapAction(_:)))
+        tapGesture.delegate = self
+        imageView.addGestureRecognizer(tapGesture)
+        
+        //longTapも設定
+        let longPressGesture = UILongPressGestureRecognizer(
+            target: self,
+            action: #selector(SettingCardsViewController.customize0LongPressAction(_:)))
+        longPressGesture.delegate = self
+        imageView.addGestureRecognizer(longPressGesture)
+        
     
     //viewDidLoadここまで
     }
@@ -395,21 +450,8 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate 
     @objc func longPressAction(_ sender: UILongPressGestureRecognizer){
         
         if sender.state == .began {
-//            //longTapが開始されたときの処理
-//            //どの柄がlongTapされたのかを判断して処理
-//            switch (sender as AnyObject).view.tag {
-//            case 0:
-//                longPressAlert(longTappedCardsList: cardsList.spadeList)
-//            case 13:
-//                longPressAlert(longTappedCardsList: cardsList.heartList)
-//            case 26:
-//                longPressAlert(longTappedCardsList: cardsList.diamondList)
-//            case 39:
-//                longPressAlert(longTappedCardsList: cardsList.clubList)
-//            default:
-//                print("default")
-//            }
-            longPressAlert(tag: (sender as AnyObject).view.tag)
+            //longTapが開始されたときの処理
+            longPressAlert()
             
         } else if sender.state == .ended {
             //longTapが終わったときの処理
@@ -419,24 +461,7 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate 
     
     
     //longPressが押されたときに表示するアラート
-    func longPressAlert(tag: Int) {
-        
-        //どのカードがロングタップされたか判定
-        var key: String = ""
-        
-        switch tag {
-        case 0:
-            key = "spade"
-        case 13:
-            key = "heart"
-        case 26:
-            key = "diamond"
-        case 39:
-            key = "club"
-            
-        default:
-            print("default")
-        }
+    func longPressAlert() {
         
         //アラートの作成
         let alert = UIAlertController(title: "Card Setting", message: "使う？使わない？", preferredStyle: .alert)
@@ -444,18 +469,24 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate 
         //SelectAllボタンを作成
         let sellectAll = UIAlertAction(title: "Sellect all", style: .default, handler: { (action) -> Void in
             //すべてのカードのuseをtrueにする
-            for i in 0..<self.imageViewsdic[key]!.count {
-                self.imageViewsdic[key]![i].alpha = 1
-                self.cardsList.allList[tag + i].use = true
+            for i in 0..<self.imageViewsListWithoutCustomize.count {
+                self.imageViewsListWithoutCustomize[i].alpha = 1
+                self.cardsList.allList[i].use = true
+//            for i in 0..<self.imageViewsdic[key]!.count {
+//                self.imageViewsdic[key]![i].alpha = 1
+//                self.cardsList.allList[tag + i].use = true
             }
         })
         
         //ClearAllボタンを作成
         let clearAll = UIAlertAction(title: "Clear all", style: .default, handler: { (action) -> Void in
             //すべてのカードのuseをfalseにする
-            for i in 0..<self.imageViewsdic[key]!.count {
-                self.imageViewsdic[key]![i].alpha = 0.2
-                self.cardsList.allList[tag + i].use = false
+            for i in 0..<self.imageViewsListWithoutCustomize.count {
+                self.imageViewsListWithoutCustomize[i].alpha = 0.2
+                self.cardsList.allList[i].use = false
+//            for i in 0..<self.imageViewsdic[key]!.count {
+//                self.imageViewsdic[key]![i].alpha = 0.2
+//                self.cardsList.allList[tag + i].use = false
             }
         })
         
@@ -474,8 +505,6 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate 
         
     }
     
-
-    
     
     //tapの処理
     @objc func tapAction(_ sender: UITapGestureRecognizer) {
@@ -484,27 +513,18 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate 
 
             //どのカードがタップされたかを判断して,
             let tag = (sender as AnyObject).view.tag
-
             if tag < 54 {
                 //もともとuseがtrueならfalseへ、falseならtrueへ
                 if cardsList.allList[tag].use == true {
                     cardsList.allList[tag].use = false
-                    
                 } else {
                     cardsList.allList[tag].use = true
                 }
                 //viewを更新
                 switchAlpha(tag: tag)
             }
-            
-            if tag == 54 {
-                let CustomizeSettingVC = storyboard?.instantiateViewController(withIdentifier: "CustomizeSettingVC") as! CustomizeSettingViewController
-                CustomizeSettingVC.cardsList = cardsList
-                navigationController?.pushViewController(CustomizeSettingVC, animated: true)
-            }
         }
     }
-    
     
     
     //機能:ImageViewにカードを表示
@@ -552,7 +572,121 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate 
     }
     
 
+    //customize0LongPressのボタンの処理
+    @objc func customize0LongPressAction(_ sender: UILongPressGestureRecognizer){
+        
+        if sender.state == .began {
+            //longTapが開始されたときの処理
+            customize0LongPressAlert()
+            
+        } else if sender.state == .ended {
+            //longTapが終わったときの処理
+            //処理なし
+        }
+    }
     
+    //customize0LongPressが押されたときに表示するアラート
+    func customize0LongPressAlert() {
+        
+        //アラートの作成
+        let alert = UIAlertController(title: "Card Setting", message: "使う？使わない？", preferredStyle: .alert)
+        
+        //SelectAllボタンを作成
+        let sellectAll = UIAlertAction(title: "Sellect all", style: .default, handler: { (action) -> Void in
+//            カスタマイズカードをすべてオンにする処理
+//            //すべてのカードのuseをtrueにする
+//            for i in 0..<self.imageViewsListWithoutCustomize.count {
+//                self.imageViewsListWithoutCustomize[i].alpha = 1
+//                self.cardsList.allList[i].use = true
+//            }
+        })
+        
+        //ClearAllボタンを作成
+        let clearAll = UIAlertAction(title: "Clear all", style: .default, handler: { (action) -> Void in
+//            カスタマイズカードをすべてオフにする処理
+//            //すべてのカードのuseをfalseにする
+//            for i in 0..<self.imageViewsListWithoutCustomize.count {
+//                self.imageViewsListWithoutCustomize[i].alpha = 0.2
+//                self.cardsList.allList[i].use = false
+//            }
+        })
+        
+        //キャンセルボタンの作成
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
+            print("Cancel button tapped")
+        })
+        
+        //アラートにボタンを追加
+        alert.addAction(sellectAll);
+        alert.addAction(clearAll);
+        alert.addAction(cancel);
+        
+        //アラートの実行
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+        
+    //tapの処理
+    @objc func customize0TapAction(_ sender: UITapGestureRecognizer) {
+        
+        if sender.state == .ended {
+
+            //どのカードがタップされたかを判断して,
+            let tag = (sender as AnyObject).view.tag
+            if tag == 54 {
+                let CustomizeSettingVC = storyboard?.instantiateViewController(withIdentifier: "CustomizeSettingVC") as! CustomizeSettingViewController
+                CustomizeSettingVC.cardsList = cardsList
+                navigationController?.pushViewController(CustomizeSettingVC, animated: true)
+            }
+        }
+    }
+    
+    //バナー
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        NSLayoutConstraint.activate([
+            bannerView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            bannerView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0)
+        ])
+    
+    }
+
+    
+    //各種バナー広告イベントの実装
+    
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+        //広告が取得されるまで、ビュー階層に GADBannerView を追加するのを遅らせたい場合
+        addBannerViewToView(bannerView)
+        
+        //バナー広告をアニメーション表示
+        bannerView.alpha = 0
+        UIView.animate(withDuration: 1, animations: {
+          bannerView.alpha = 1
+        })
+
+//      print("bannerViewDidReceiveAd")
+    }
+
+    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+//      print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+
+    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
+//      print("bannerViewDidRecordImpression")
+    }
+
+    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
+//      print("bannerViewWillPresentScreen")
+    }
+
+    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
+//      print("bannerViewWillDIsmissScreen")
+    }
+
+    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
+//      print("bannerViewDidDismissScreen")
+    }
     
     /*
     // MARK: - Navigation

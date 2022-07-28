@@ -4,7 +4,7 @@
 //
 //  Created by Misawa Kazushi on 2022/02/19.
 //
-
+import GoogleMobileAds
 import UIKit
 import CropViewController
 
@@ -13,8 +13,10 @@ protocol CatchProtocol{
 }
 
 
-class CreateViewController: UIViewController, UIImagePickerControllerDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate, UINavigationControllerDelegate, CropViewControllerDelegate {
+class CreateViewController: UIViewController, UIImagePickerControllerDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate, UINavigationControllerDelegate, CropViewControllerDelegate, GADBannerViewDelegate {
     
+    //admobのバナー
+    var bannerView: GADBannerView!
     
     @IBOutlet weak var textField: UITextField! //textField
     @IBOutlet weak var cardView: UIImageView! //imageView
@@ -33,6 +35,20 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //バナー
+        bannerView = GADBannerView(adSize: GADAdSizeBanner)
+        addBannerViewToView(bannerView)
+        
+        //GADBannerVIewのプロバティ
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        
+        //広告を読み込む
+        bannerView.load(GADRequest())
+        
+        //広告イベント
+        bannerView.delegate = self
 
         //レイアウト設定
         cardView.translatesAutoresizingMaskIntoConstraints = false
@@ -58,7 +74,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
             settingOK.bottomAnchor.constraint(equalTo: cardView.topAnchor, constant: CGFloat(btwButtonAndCard)),
             backButton.leadingAnchor.constraint(equalTo: cardView.leadingAnchor),
             backButton.centerYAnchor.constraint(equalTo: settingOK.centerYAnchor, constant: 0),
-            textField.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 10),
+            textField.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 5),
 //            textField.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: CGFloat(itvBottom)),
             textField.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 0),
             textField.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: 0)
@@ -296,6 +312,53 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         currentText = textField.text!
         textField.resignFirstResponder()
+    }
+    
+    //バナー
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        NSLayoutConstraint.activate([
+            bannerView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            bannerView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0)
+        ])
+    
+    }
+
+    
+    //各種バナー広告イベントの実装
+    
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+        //広告が取得されるまで、ビュー階層に GADBannerView を追加するのを遅らせたい場合
+        addBannerViewToView(bannerView)
+        
+        //バナー広告をアニメーション表示
+        bannerView.alpha = 0
+        UIView.animate(withDuration: 1, animations: {
+          bannerView.alpha = 1
+        })
+
+//      print("bannerViewDidReceiveAd")
+    }
+
+    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+//      print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+
+    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
+//      print("bannerViewDidRecordImpression")
+    }
+
+    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
+//      print("bannerViewWillPresentScreen")
+    }
+
+    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
+//      print("bannerViewWillDIsmissScreen")
+    }
+
+    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
+//      print("bannerViewDidDismissScreen")
     }
     
     

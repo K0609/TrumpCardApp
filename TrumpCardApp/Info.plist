@@ -17,15 +17,19 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-2076115814043994~2378237748</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>オリジナルのカードを作成するための画像の取得にカメラを使います</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>オリジナルのカードを作成するための画像の取得にフォトライブラリを使います</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>Used to select the appropriate ads to display.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

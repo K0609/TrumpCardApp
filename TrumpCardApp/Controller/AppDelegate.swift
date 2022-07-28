@@ -7,6 +7,10 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import FirebaseCore
+import GoogleMobileAds
+import AdSupport
+import AppTrackingTransparency
 
 
 @main
@@ -19,7 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = false
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
-
+        
+        // Use Firebase library to configure APIs.
+        FirebaseApp.configure()
+                
         return true
     }
 

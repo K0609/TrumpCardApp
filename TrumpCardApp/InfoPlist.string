@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.string.strings
+  TrumpCardApp
+
+  Created by Misawa Kazushi on 2022/07/17.
+  
+*/
+
+NSUserTrackingUsageDescription = "お客様の興味関心に合わせた広告を表示するために利用します";

@@ -4,10 +4,10 @@
 //
 //  Created by Misawa Kazushi on 2021/10/27.
 //
-
+import GoogleMobileAds
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, GADBannerViewDelegate {
 
     @IBOutlet weak var cardView: UIButton!
     @IBOutlet weak var shuffleButton: UIButton!
@@ -20,9 +20,25 @@ class ViewController: UIViewController {
     var drawCount: Int = 0 //カードを引いた回数
     var soundFile = SoundFile() //SoundFileモデルをインスタンス化
     
-    
+    //admobのバナー
+    var bannerView: GADBannerView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //バナー
+        bannerView = GADBannerView(adSize: GADAdSizeBanner)
+        addBannerViewToView(bannerView)
+        
+        //GADBannerVIewのプロバティ
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        
+        //広告を読み込む
+        bannerView.load(GADRequest())
+        
+        //広告イベント
+        bannerView.delegate = self
         
         //　ナビゲーションバーの背景色
         self.navigationController?.navigationBar.barTintColor = .clear
@@ -68,7 +84,7 @@ class ViewController: UIViewController {
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         
         //間隔を設定
-        let itvTopToButton = 5
+        let itvTopToButton = self.view.frame.height * 0.001
 //        let itvBottom = -5
         let itvLeading = self.view.frame.width * 0.1
         let itvTrailing = self.view.frame.width * 0.1
@@ -79,7 +95,7 @@ class ViewController: UIViewController {
             cardView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -itvTrailing),
             cardView.heightAnchor.constraint(equalTo: cardView.widthAnchor, multiplier: cardAspectRatio),
 //            cardView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            cardView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: self.view.frame.height * 0.05),
+            cardView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 0),
             toSettingButton.trailingAnchor.constraint(equalTo: cardView.trailingAnchor),
             toSettingButton.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: CGFloat(itvTopToButton)),
             shuffleButton.leadingAnchor.constraint(equalTo: cardView.leadingAnchor),
@@ -113,6 +129,10 @@ class ViewController: UIViewController {
         shuffle(cardsList: useCardsList)
     }
 
+    //ATTの許可アラートを表示
+    override func viewDidAppear(_ animated: Bool) {
+        AppTrackingManager.requestAppTracking()
+    }
 
     //cardを引くときの処理
     @IBAction func drawCard(_ sender: Any) {
@@ -215,6 +235,52 @@ class ViewController: UIViewController {
         button.contentHorizontalAlignment = .fill
         button.contentVerticalAlignment = .fill
     }
+    
+    //バナー
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        NSLayoutConstraint.activate([
+            bannerView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            bannerView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0)
+        ])
+    
+    }
 
+    
+    //各種バナー広告イベントの実装
+    
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+        //広告が取得されるまで、ビュー階層に GADBannerView を追加するのを遅らせたい場合
+        addBannerViewToView(bannerView)
+        
+        //バナー広告をアニメーション表示
+        bannerView.alpha = 0
+        UIView.animate(withDuration: 1, animations: {
+          bannerView.alpha = 1
+        })
+
+//      print("bannerViewDidReceiveAd")
+    }
+
+    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+//      print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+
+    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
+//      print("bannerViewDidRecordImpression")
+    }
+
+    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
+//      print("bannerViewWillPresentScreen")
+    }
+
+    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
+//      print("bannerViewWillDIsmissScreen")
+    }
+
+    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
+//      print("bannerViewDidDismissScreen")
+    }
 }
 
