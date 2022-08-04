@@ -29,7 +29,7 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>オリジナルのカードを作成するための画像の取得にフォトライブラリを使います</string>
 	<key>NSUserTrackingUsageDescription</key>
-	<string>Used to select the appropriate ads to display.</string>
+	<string>お客様の興味関心に合わせた広告を表示するために利用します</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
