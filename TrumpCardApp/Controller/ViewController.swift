@@ -13,12 +13,16 @@ class ViewController: UIViewController, GADBannerViewDelegate {
     @IBOutlet weak var shuffleButton: UIButton!
     @IBOutlet weak var toSettingButton: UIButton!
     @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var modeButton: UIButton!
     
     var cardsList = CardsList() //全カード情報となるcardsListをインスタンス化
     var useCardsList = [CardsModel]() //cardsList中のCardsModelの"use"だけを入れる箱
     
     var drawCount: Int = 0 //カードを引いた回数
     var soundFile = SoundFile() //SoundFileモデルをインスタンス化
+    
+    var currentCard: CardsModel!
+    var currentMode: String = "NOMAL MODE"
     
     //admobのバナー
     var bannerView: GADBannerView!
@@ -31,10 +35,10 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         addBannerViewToView(bannerView)
         
         //GADBannerVIewのプロバティ
-        //リリース用広告ID
-        bannerView.adUnitID = "ca-app-pub-2076115814043994/7340909484"
-//        //テスト用広告ID
-//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+//        //リリース用広告ID
+//        bannerView.adUnitID = "ca-app-pub-2076115814043994/7340909484"
+        //テスト用広告ID
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         bannerView.rootViewController = self
         
         //広告を読み込む
@@ -77,20 +81,21 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         marukadoWakusen(button: cardView)
         
         
-//        //textLabelの見た目を整える
-//        textLabel.backgroundColor = UIColor.systemGray
+        //textLabelの見た目を整える
+        textLabel.font = UIFont(name: "Futura-CondensedExtraBold", size: 17)
         
         //レイアウト設定
         cardView.translatesAutoresizingMaskIntoConstraints = false
         shuffleButton.translatesAutoresizingMaskIntoConstraints = false
         toSettingButton.translatesAutoresizingMaskIntoConstraints = false
         textLabel.translatesAutoresizingMaskIntoConstraints = false
+        modeButton.translatesAutoresizingMaskIntoConstraints = false
         
         //間隔を設定
         let itvTopToButton = self.view.frame.height * 0.001
 //        let itvBottom = -5
-        let itvLeading = self.view.frame.width * 0.1
-        let itvTrailing = self.view.frame.width * 0.1
+        let itvLeading = self.view.frame.width * 0.15
+        let itvTrailing = self.view.frame.width * 0.15
         let cardAspectRatio = 1.618
 
         NSLayoutConstraint.activate([
@@ -105,7 +110,9 @@ class ViewController: UIViewController, GADBannerViewDelegate {
             shuffleButton.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: CGFloat(itvTopToButton)),
             textLabel.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 15),
             textLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 0),
-            textLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: 0)
+            textLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: 0),
+            modeButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            modeButton.centerYAnchor.constraint(equalTo: toSettingButton.centerYAnchor)
             ])
     }
     
@@ -144,11 +151,21 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         if drawCount < useCardsList.count {
             
             //まだカードがあるなら次のカードがあるなら次のカードを表示
-            let drawCard = useCardsList[drawCount]
-            let drawCardImage = drawCard.cardImage
+            currentCard = useCardsList[drawCount]
+            let drawCardImage = currentCard.cardImage
             
             cardView.setImage(drawCardImage, for: UIControl.State.normal) //画像をセット
-            textLabel.text = drawCard.textLabelText //テキストをセット
+            
+            if currentMode == "NOMAL MODE" {
+                if currentCard.cardType == "regular" {
+                    textLabel.text = ""
+                } else if currentCard.cardType == "custom" {
+                    textLabel.text = currentCard.textLabelText //テキストをセット
+                }
+            } else if currentMode == "KING's CUP MODE"{
+                textLabel.text = currentCard.textLabelText //テキストをセット
+            }
+            
             soundFile.playSound(fileName: "draw", extentionName: "mp3") //カードを引いたときの音を鳴らす
     
             drawCount += 1 //カードを引いた回数を+1
@@ -182,11 +199,44 @@ class ViewController: UIViewController, GADBannerViewDelegate {
     
     }
     
- 
+    
+    //遊びMODEの変更
+    @IBAction func changeMode(_ sender: Any) {
+        
+        //currentMODEの変更
+        if currentMode == "NOMAL MODE" {
+            currentMode = "KING's CUP MODE"
+            modeButton.backgroundColor = UIColor.systemPink
+            
+        } else if currentMode == "KING's CUP MODE" {
+            currentMode = "NOMAL MODE"
+            modeButton.backgroundColor = UIColor.systemGreen
+
+        }
+        
+        modeButton.setTitle(currentMode, for: .normal)
+        
+        //textLabelの表示をcurrentMODEに対応
+        if currentCard != nil {
+            if currentMode == "NOMAL MODE" {
+                if currentCard.cardType == "regular" {
+                    textLabel.text = ""
+                } else if currentCard.cardType == "custom" {
+                    textLabel.text = currentCard.textLabelText //テキストをセット
+                }
+            } else if currentMode == "KING's CUP MODE" {
+                textLabel.text = currentCard.textLabelText //テキストをセット
+            }
+        }
+    }
+    
+   
     //機能：はじめから遊ぶ
     func resetGame() {
         
         cardView.setImage(UIImage(named: "ura"), for: UIControl.State.normal)
+        currentCard = nil
+        textLabel.text = ""
         drawCount = 0
         shuffle(cardsList: useCardsList)
         
@@ -198,7 +248,6 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         
         self.useCardsList.shuffle()
 //        textLabel.isHidden = true
-        textLabel.text = ""
         soundFile.playSound(fileName: "shuffle", extentionName: "mp3")
         
     }
@@ -238,7 +287,7 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         button.contentHorizontalAlignment = .fill
         button.contentVerticalAlignment = .fill
     }
-    
+     
     //バナー
     func addBannerViewToView(_ bannerView: GADBannerView) {
         bannerView.translatesAutoresizingMaskIntoConstraints = false

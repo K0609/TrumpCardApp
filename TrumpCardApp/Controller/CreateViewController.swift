@@ -41,10 +41,10 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         addBannerViewToView(bannerView)
         
         //GADBannerVIewのプロバティ
-        //リリース用広告ID
-        bannerView.adUnitID = "ca-app-pub-2076115814043994/7340909484"
-//        //テスト用広告ID
-//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+//        //リリース用広告ID
+//        bannerView.adUnitID = "ca-app-pub-2076115814043994/7340909484"
+        //テスト用広告ID
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         bannerView.rootViewController = self
         
         //広告を読み込む
@@ -123,6 +123,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
             let customizeCardNumber = cardsList.customizeList.count + 1
             //新しくカードを作成
             let customizeCard = CardsModel(cardImage: currentImage,
+                                           cardType: "custom",
                                            cardMark: "customize",
                                            cardNumber: customizeCardNumber,
                                            textLabelText: currentText)
