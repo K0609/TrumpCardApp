@@ -126,7 +126,9 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
                                            cardType: "custom",
                                            cardMark: "customize",
                                            cardNumber: customizeCardNumber,
-                                           textLabelText: currentText)
+                                           textLabelText: currentText,
+                                           textViewText: ""
+                                           )
             //カードリストに新しく作成したカードを追加
             cardsList.customizeList.append(customizeCard)
             

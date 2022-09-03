@@ -13,7 +13,12 @@ class ViewController: UIViewController, GADBannerViewDelegate {
     @IBOutlet weak var shuffleButton: UIButton!
     @IBOutlet weak var toSettingButton: UIButton!
     @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var modeButton: UIButton!
+    
+    @IBOutlet weak var KCModeCardViewHight: NSLayoutConstraint!
+    @IBOutlet weak var KCModeCardViewCenterY: NSLayoutConstraint!
+    @IBOutlet weak var NModeCardViewCenterY: NSLayoutConstraint!
     
     var cardsList = CardsList() //全カード情報となるcardsListをインスタンス化
     var useCardsList = [CardsModel]() //cardsList中のCardsModelの"use"だけを入れる箱
@@ -26,9 +31,25 @@ class ViewController: UIViewController, GADBannerViewDelegate {
     
     //admobのバナー
     var bannerView: GADBannerView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // アプリ起動時・フォアグラウンド復帰時の通知を設定する
+        NotificationCenter.default.addObserver(
+          self,
+          selector: #selector(ViewController.onWillEnterForeground(_:)),
+          name: UIApplication.willEnterForegroundNotification,
+          object: nil
+        )
+        
+        // バックグラウンド遷移時の通知を設定する
+        NotificationCenter.default.addObserver(
+          self,
+          selector: #selector(ViewController.onDidEnterBackground(_:)),
+          name: UIApplication.didEnterBackgroundNotification,
+          object: nil
+        )
         
         //バナー
         bannerView = GADBannerView(adSize: GADAdSizeBanner)
@@ -46,6 +67,7 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         
         //広告イベント
         bannerView.delegate = self
+        
         
         //　ナビゲーションバーの背景色
         self.navigationController?.navigationBar.barTintColor = .clear
@@ -66,13 +88,6 @@ class ViewController: UIViewController, GADBannerViewDelegate {
             action: nil
         )
         
-        //UserDefaultsからcardsList情報を呼び出し
-        if UserDefaults.standard.object(forKey: "cardsList") != nil {
-            cardsList = UserDefaults.standard.object(forKey: "cardsList") as! CardsList
-        }
-        
-//        //シャッフル
-//        shuffle(cardsList: cardsList.allList)
         
         //cardViewに画像がFillするように設定
         toScaletoFill(button: cardView)
@@ -80,45 +95,33 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         //画像の角丸&枠線
         marukadoWakusen(button: cardView)
         
-        
         //textLabelの見た目を整える
         textLabel.font = UIFont(name: "Futura-CondensedExtraBold", size: 17)
+        textLabel.backgroundColor = .clear
+        textLabel.isHidden = true
         
-        //レイアウト設定
-        cardView.translatesAutoresizingMaskIntoConstraints = false
-        shuffleButton.translatesAutoresizingMaskIntoConstraints = false
-        toSettingButton.translatesAutoresizingMaskIntoConstraints = false
-        textLabel.translatesAutoresizingMaskIntoConstraints = false
-        modeButton.translatesAutoresizingMaskIntoConstraints = false
+        //textViewの見た目を整える
+        textView.font = UIFont(name: "Futura-CondensedMedium", size: 14)
+        textView.backgroundColor = .clear
+        textView.isHidden = true
+        textView.text = ""
+        textView.textAlignment = NSTextAlignment.natural
+        textView.layer.masksToBounds = true
+        textView.layer.cornerRadius = 5.0
+        textView.layer.borderWidth = 0.5
+        textView.layer.borderColor = UIColor.systemGray.cgColor
+        textView.isEditable = false
         
-        //間隔を設定
-        let itvTopToButton = self.view.frame.height * 0.001
-//        let itvBottom = -5
-        let itvLeading = self.view.frame.width * 0.15
-        let itvTrailing = self.view.frame.width * 0.15
-        let cardAspectRatio = 1.618
-
-        NSLayoutConstraint.activate([
-            cardView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: itvLeading),
-            cardView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -itvTrailing),
-            cardView.heightAnchor.constraint(equalTo: cardView.widthAnchor, multiplier: cardAspectRatio),
-//            cardView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            cardView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 0),
-            toSettingButton.trailingAnchor.constraint(equalTo: cardView.trailingAnchor),
-            toSettingButton.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: CGFloat(itvTopToButton)),
-            shuffleButton.leadingAnchor.constraint(equalTo: cardView.leadingAnchor),
-            shuffleButton.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: CGFloat(itvTopToButton)),
-            textLabel.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 15),
-            textLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 0),
-            textLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: 0),
-            modeButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            modeButton.centerYAnchor.constraint(equalTo: toSettingButton.centerYAnchor)
-            ])
+        print(currentMode)
+        print("かずしviewDidLoad１")
+        
+        //レイアウトを設定
+        layout(currentMode: currentMode)
+        
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
-        
         //useCardsListから"use"のカードだけを抽出
 //        useCardsList = cardsList.allList.filter({$0.use})
         
@@ -135,15 +138,39 @@ class ViewController: UIViewController, GADBannerViewDelegate {
                 }
             }
         }
-        
+
+        //シャッフル
         shuffle(cardsList: useCardsList)
+        
     }
+    
 
     //ATTの許可アラートを表示
     override func viewDidAppear(_ animated: Bool) {
         AppTrackingManager.requestAppTracking()
     }
+    
+    
+    // バックグラウンド遷移時に行う処理
+    @objc func onDidEnterBackground(_ notification: Notification?) {
+        //UserDefaultsにModeを保存
+        UserDefaults.standard.set(currentMode, forKey: "currentMode")
+    }
 
+    
+    // アプリ起動時・フォアグラウンド復帰時に行う処理
+    @objc func onWillEnterForeground(_ notification: Notification?) {
+        // ココに処理
+        //UserDefaultsからMODEを呼び出し
+        if UserDefaults.standard.object(forKey: "currentMode") != nil {
+            currentMode = UserDefaults.standard.object(forKey: "currentMode") as! String
+        }
+        
+        //レイアウトを設定
+        layout(currentMode: currentMode)
+     }
+    
+    
     //cardを引くときの処理
     @IBAction func drawCard(_ sender: Any) {
 
@@ -158,12 +185,19 @@ class ViewController: UIViewController, GADBannerViewDelegate {
             
             if currentMode == "NOMAL MODE" {
                 if currentCard.cardType == "regular" {
-                    textLabel.text = ""
+                    textLabel.isHidden = true
                 } else if currentCard.cardType == "custom" {
+                    textLabel.isHidden = false
                     textLabel.text = currentCard.textLabelText //テキストをセット
                 }
+                textView.isHidden = true
+
             } else if currentMode == "KING's CUP MODE"{
+                textLabel.isHidden = false
                 textLabel.text = currentCard.textLabelText //テキストをセット
+                textView.isHidden = false
+                textView.text = currentCard.textViewText //テキストをセット
+
             }
             
             soundFile.playSound(fileName: "draw", extentionName: "mp3") //カードを引いたときの音を鳴らす
@@ -214,20 +248,33 @@ class ViewController: UIViewController, GADBannerViewDelegate {
 
         }
         
+        //ボタンの表示を変更
         modeButton.setTitle(currentMode, for: .normal)
         
         //textLabelの表示をcurrentMODEに対応
         if currentCard != nil {
+            
+            //NOMAL MODEの場合
             if currentMode == "NOMAL MODE" {
                 if currentCard.cardType == "regular" {
-                    textLabel.text = ""
+//                    textLabel.text = ""
+                    textLabel.isHidden = true
                 } else if currentCard.cardType == "custom" {
                     textLabel.text = currentCard.textLabelText //テキストをセット
                 }
+                textView.isHidden = true
+
+            //KINGs CUP MODEの場合
             } else if currentMode == "KING's CUP MODE" {
+                textLabel.isHidden = false
                 textLabel.text = currentCard.textLabelText //テキストをセット
+                textView.isHidden = false
+                textView.text = currentCard.textViewText //テキストをセット
             }
         }
+        
+        //レイアウトを変更
+        layout(currentMode: currentMode)
     }
     
    
@@ -237,6 +284,9 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         cardView.setImage(UIImage(named: "ura"), for: UIControl.State.normal)
         currentCard = nil
         textLabel.text = ""
+        textLabel.isHidden = true
+        textView.text = ""
+        textView.isHidden = true
         drawCount = 0
         shuffle(cardsList: useCardsList)
         
@@ -288,15 +338,30 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         button.contentVerticalAlignment = .fill
     }
      
+    
+    //レイアウトを変更するメソッド
+    func layout(currentMode: String) {
+        
+        if currentMode == "NOMAL MODE" {
+            NSLayoutConstraint.deactivate([KCModeCardViewHight, KCModeCardViewCenterY])
+            NSLayoutConstraint.activate([NModeCardViewCenterY])
+           
+        } else if currentMode == "KING's CUP MODE" {
+            NSLayoutConstraint.deactivate([NModeCardViewCenterY])
+            NSLayoutConstraint.activate([KCModeCardViewHight, KCModeCardViewCenterY])
+
+        }
+    }
+    
+    
     //バナー
     func addBannerViewToView(_ bannerView: GADBannerView) {
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bannerView)
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             bannerView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
             bannerView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0)
         ])
-    
     }
 
     

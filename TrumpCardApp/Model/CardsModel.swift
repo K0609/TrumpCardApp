@@ -16,6 +16,7 @@ class CardsModel {
     let cardMark: String
     let cardNumber: Int
     var textLabelText: String = ""
+    var textViewText: String = ""
     var use: Bool = true
     var drawedOrder: Int = 0
     
@@ -23,7 +24,8 @@ class CardsModel {
          cardType: String,
          cardMark: String,
          cardNumber: Int,
-         textLabelText: String
+         textLabelText: String,
+         textViewText: String
     ) {
         
         self.cardImage = cardImage
@@ -31,6 +33,7 @@ class CardsModel {
         self.cardMark = cardMark
         self.cardNumber = cardNumber
         self.textLabelText = textLabelText
+        self.textViewText = textViewText
 
     }
     

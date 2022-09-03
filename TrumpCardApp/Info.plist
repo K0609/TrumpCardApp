@@ -30,6 +30,8 @@
 	<string>オリジナルのカードを作成するための画像の取得にフォトライブラリを使います</string>
 	<key>NSUserTrackingUsageDescription</key>
 	<string>お客様の興味関心に合わせた広告を表示するために利用します</string>
+	<key>SKAdNetworkIdentifier</key>
+	<string>cstr6suwn9.skadnetwork</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

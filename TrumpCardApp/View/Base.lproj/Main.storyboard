@@ -18,35 +18,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCL-oR-NtU">
-                                <rect key="frame" x="50" y="202.5" width="314" height="491"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCL-oR-NtU">
+                                <rect key="frame" x="50" y="174" width="314" height="508"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="eCL-oR-NtU" secondAttribute="height" multiplier="1000:1618" id="teD-mw-MEG"/>
+                                </constraints>
                                 <state key="normal" image="ura"/>
                                 <connections>
                                     <action selector="drawCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3qh-Fa-0yw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IQQ-XQ-EMA">
-                                <rect key="frame" x="337" y="88" width="29.5" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" systemColor="systemGrayColor"/>
-                                <state key="normal">
-                                    <imageReference key="image" image="gearshape" catalog="system" symbolScale="default"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
-                                </state>
-                                <connections>
-                                    <action selector="toSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fd8-BI-6cE"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFI-PJ-B6h">
-                                <rect key="frame" x="50" y="703.5" width="314" height="0.0"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFI-PJ-B6h">
+                                <rect key="frame" x="50" y="692" width="314" height="30"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="tPs-Wf-WG5"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zym-36-n1c">
-                                <rect key="frame" x="50" y="90" width="25" height="24"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sXp-FB-bNH">
+                                <rect key="frame" x="47" y="732" width="320" height="70"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="Qsd-e3-21S"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nFI-PJ-B6h" firstAttribute="top" secondItem="eCL-oR-NtU" secondAttribute="bottom" constant="10" id="2az-DZ-nMa"/>
+                            <constraint firstItem="eCL-oR-NtU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-50" id="30e-f2-7t6"/>
+                            <constraint firstItem="nFI-PJ-B6h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="EFO-yv-wDJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sXp-FB-bNH" secondAttribute="bottom" constant="60" id="Mvz-uH-eaP"/>
+                            <constraint firstItem="eCL-oR-NtU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="P8V-4g-Xb0"/>
+                            <constraint firstItem="eCL-oR-NtU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="US7-ed-zyi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nFI-PJ-B6h" secondAttribute="trailing" constant="50" id="UtQ-PJ-4NJ"/>
+                            <constraint firstItem="eCL-oR-NtU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="XRl-rj-34o"/>
+                            <constraint firstItem="eCL-oR-NtU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-20" id="bzD-yh-z7R"/>
+                            <constraint firstItem="sXp-FB-bNH" firstAttribute="top" secondItem="nFI-PJ-B6h" secondAttribute="bottom" constant="10" id="jCH-Nz-J8a"/>
+                            <constraint firstItem="eCL-oR-NtU" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.5" id="mWc-9a-lSG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="nFI-PJ-B6h" secondAttribute="bottom" constant="60" id="rr1-at-uox"/>
+                            <constraint firstItem="sXp-FB-bNH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ub7-46-99V"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="30e-f2-7t6"/>
+                                <exclude reference="mWc-9a-lSG"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="riZ-6x-vY7">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="PHQ-A6-wZH">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zym-36-n1c">
+                                <rect key="frame" x="20" y="10" width="25" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemGrayColor"/>
                                 <state key="normal">
@@ -57,30 +88,45 @@
                                     <action selector="resetGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kQy-k3-fIg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIY-qK-EHw">
-                                <rect key="frame" x="148" y="88" width="119" height="31"/>
+                        </barButtonItem>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="gIY-qK-EHw">
+                            <rect key="frame" x="116.5" y="8" width="181" height="28"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="13"/>
+                            <color key="tintColor" systemColor="systemGreenColor"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="NOMAL MODE">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="changeMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uj6-2m-wpS"/>
+                            </connections>
+                        </button>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="VoB-EI-5ra">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IQQ-XQ-EMA">
+                                <rect key="frame" x="364.5" y="8" width="29.5" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="13"/>
-                                <color key="tintColor" systemColor="systemGreenColor"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="NOMAL MODE">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemGrayColor"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="gearshape" catalog="system" symbolScale="default"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                 </state>
                                 <connections>
-                                    <action selector="changeMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uj6-2m-wpS"/>
+                                    <action selector="toSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fd8-BI-6cE"/>
                                 </connections>
                             </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="riZ-6x-vY7"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="KCModeCardViewCenterY" destination="30e-f2-7t6" id="03o-RA-H1m"/>
+                        <outlet property="KCModeCardViewHight" destination="mWc-9a-lSG" id="Gjs-EQ-wQc"/>
+                        <outlet property="NModeCardViewCenterY" destination="bzD-yh-z7R" id="lMV-h1-5xK"/>
                         <outlet property="cardView" destination="eCL-oR-NtU" id="oCE-EM-ngZ"/>
                         <outlet property="modeButton" destination="gIY-qK-EHw" id="ud0-Ju-8lz"/>
                         <outlet property="shuffleButton" destination="zym-36-n1c" id="4CA-ot-lrT"/>
                         <outlet property="textLabel" destination="nFI-PJ-B6h" id="FVr-0H-atx"/>
+                        <outlet property="textView" destination="sXp-FB-bNH" id="jBq-n0-IFO"/>
                         <outlet property="toSettingButton" destination="IQQ-XQ-EMA" id="NsD-SP-tov"/>
                         <segue destination="7v2-p4-pHf" kind="show" identifier="toSettingCardsVC" id="0f6-RO-JKy"/>
                     </connections>
@@ -243,6 +289,9 @@
         <image name="delete.left" catalog="system" width="128" height="104"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="ura" width="1012" height="1618"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -251,6 +300,12 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -405,7 +405,7 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate,
         }
         
         //全カードの透明度表示設定（ゲームに使用or不使用の表示設定）
-        for i in 0..<(imageViewsListWithoutCustomize.count - 1) {
+        for i in 0..<(imageViewsListWithoutCustomize.count) {
             
             switchAlpha(tag: i)
         
