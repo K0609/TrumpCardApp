@@ -56,10 +56,10 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         addBannerViewToView(bannerView)
         
         //GADBannerVIewのプロバティ
-        //リリース用広告ID
-        bannerView.adUnitID = "ca-app-pub-2076115814043994/7340909484"
-//        //テスト用広告ID
-//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+//        //リリース用広告ID
+//        bannerView.adUnitID = "ca-app-pub-2076115814043994/7340909484"
+        //テスト用広告ID
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         bannerView.rootViewController = self
         
         //広告を読み込む
@@ -96,12 +96,12 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         marukadoWakusen(button: cardView)
         
         //textLabelの見た目を整える
-        textLabel.font = UIFont(name: "Futura-CondensedExtraBold", size: 17)
+        textLabel.font = UIFont(name: "Futura-Medium", size: 17)
         textLabel.backgroundColor = .clear
         textLabel.isHidden = true
         
         //textViewの見た目を整える
-        textView.font = UIFont(name: "Futura-CondensedMedium", size: 14)
+        textView.font = UIFont(name: "Futura-Medium", size: 14)
         textView.backgroundColor = .clear
         textView.isHidden = true
         textView.text = ""
@@ -113,7 +113,6 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         textView.isEditable = false
         
         print(currentMode)
-        print("かずしviewDidLoad１")
         
         //レイアウトを設定
         layout(currentMode: currentMode)
@@ -209,7 +208,7 @@ class ViewController: UIViewController, GADBannerViewDelegate {
             //もうカードがなかったら、やり直しのアラートを表示
             showAlert(alertTitle: "Play again?",
                       alertMessage: "もう一度遊ぶ",
-                      defaultTitle: "Sure!!")
+                      defaultTitle: NSLocalizedString("もろちん!!", comment: ""))
         }
     }
     
@@ -218,7 +217,7 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         
         showAlert(alertTitle: "Reset game?",
                   alertMessage: "やり直す",
-                  defaultTitle: "Yes")
+                  defaultTitle: NSLocalizedString("そうする!", comment: ""))
         
     }
     
@@ -242,14 +241,19 @@ class ViewController: UIViewController, GADBannerViewDelegate {
             currentMode = "KING's CUP MODE"
             modeButton.backgroundColor = UIColor.systemPink
             
+            //ボタンの表示名を変更
+            modeButton.setTitle(NSLocalizedString("キングスカップモード", comment: "") , for: .normal)
+            
         } else if currentMode == "KING's CUP MODE" {
             currentMode = "NOMAL MODE"
             modeButton.backgroundColor = UIColor.systemGreen
+            
+            //ボタンの表示名を変更
+            modeButton.setTitle(NSLocalizedString("ノーマルモード", comment: "") , for: .normal)
 
         }
         
-        //ボタンの表示を変更
-        modeButton.setTitle(currentMode, for: .normal)
+        
         
         //textLabelの表示をcurrentMODEに対応
         if currentCard != nil {
@@ -312,7 +316,7 @@ class ViewController: UIViewController, GADBannerViewDelegate {
             self.resetGame()
         })
         
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
+        let cancel = UIAlertAction(title: NSLocalizedString("やめとく", comment: ""), style: .cancel, handler: { (action) -> Void in
             print("Cancel button tapped")
         })
         

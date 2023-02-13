@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3C37B0878E9F3B6F6F961E47 /* Pods_TrumpCardApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43412026328B46699A9FD04B /* Pods_TrumpCardApp.framework */; };
-		4902791B2883FAE100785821 /* InfoPlist.string in Resources */ = {isa = PBXBuildFile; fileRef = 4902791A2883FAE100785821 /* InfoPlist.string */; };
 		4902791D2883FBBF00785821 /* AppTrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4902791C2883FBBF00785821 /* AppTrackingManager.swift */; };
+		490B32C2298E30B600003786 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 490B32C4298E30B600003786 /* InfoPlist.strings */; };
+		491F128C29829EF0003BB488 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 491F128E29829EF0003BB488 /* Localizable.strings */; };
 		4943FA5A2747EBC2007823BB /* CustomizeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4943FA592747EBC1007823BB /* CustomizeSettingViewController.swift */; };
 		4943FA5E2747FC53007823BB /* CheckPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4943FA5D2747FC53007823BB /* CheckPermission.swift */; };
 		4950404E280123650071F0CF /* SettingCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4950404D280123630071F0CF /* SettingCardsViewController.swift */; };
@@ -34,8 +35,12 @@
 /* Begin PBXFileReference section */
 		1804A8F17B2CA0596DFD0560 /* Pods-TrumpCardApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrumpCardApp.debug.xcconfig"; path = "Target Support Files/Pods-TrumpCardApp/Pods-TrumpCardApp.debug.xcconfig"; sourceTree = "<group>"; };
 		43412026328B46699A9FD04B /* Pods_TrumpCardApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrumpCardApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4902791A2883FAE100785821 /* InfoPlist.string */ = {isa = PBXFileReference; lastKnownFileType = text; path = InfoPlist.string; sourceTree = "<group>"; };
 		4902791C2883FBBF00785821 /* AppTrackingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTrackingManager.swift; sourceTree = "<group>"; };
+		490B32C3298E30B600003786 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		490B32C5298E30C000003786 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		491F12822981DB57003BB488 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		491F128D29829EF0003BB488 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		491F128F29829EF8003BB488 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4943FA592747EBC1007823BB /* CustomizeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeSettingViewController.swift; sourceTree = "<group>"; };
 		4943FA5D2747FC53007823BB /* CheckPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPermission.swift; sourceTree = "<group>"; };
 		4950404D280123630071F0CF /* SettingCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCardsViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +60,8 @@
 		498594FB27C0DD6600B7D77D /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		499541B227A9EC1700BC5C17 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		499541B327A9EC1700BC5C17 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		49D4B31E29808C3500E3056D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		49D4B31F29808C3700E3056D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		49D99D22286A645E0058723A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		99F6BE74F908A15667BEF939 /* Pods-TrumpCardApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrumpCardApp.release.xcconfig"; path = "Target Support Files/Pods-TrumpCardApp/Pods-TrumpCardApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,8 +107,9 @@
 				497D73B0272A16E6003EEA35 /* draw.mp3 */,
 				497D73B2272A16F3003EEA35 /* shuffle.mp3 */,
 				497D73AA2728BB16003EEA35 /* Info.plist */,
-				4902791A2883FAE100785821 /* InfoPlist.string */,
+				490B32C4298E30B600003786 /* InfoPlist.strings */,
 				49D99D22286A645E0058723A /* GoogleService-Info.plist */,
+				491F128E29829EF0003BB488 /* Localizable.strings */,
 			);
 			path = TrumpCardApp;
 			sourceTree = "<group>";
@@ -200,9 +208,10 @@
 			};
 			buildConfigurationList = 497D73942728BB0E003EEA35 /* Build configuration list for PBXProject "TrumpCardApp" */;
 			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = en;
+			developmentRegion = ja;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				ja,
 				en,
 				Base,
 			);
@@ -228,9 +237,10 @@
 				497D73B3272A16F3003EEA35 /* shuffle.mp3 in Resources */,
 				499541B527A9EC1700BC5C17 /* CollectionViewCell.xib in Resources */,
 				497D73A92728BB16003EEA35 /* LaunchScreen.storyboard in Resources */,
+				491F128C29829EF0003BB488 /* Localizable.strings in Resources */,
 				497D73A62728BB16003EEA35 /* Assets.xcassets in Resources */,
-				4902791B2883FAE100785821 /* InfoPlist.string in Resources */,
 				497D73A42728BB0F003EEA35 /* Main.storyboard in Resources */,
+				490B32C2298E30B600003786 /* InfoPlist.strings in Resources */,
 				49D99D23286A645E0058723A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,10 +312,30 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		490B32C4298E30B600003786 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				490B32C3298E30B600003786 /* ja */,
+				490B32C5298E30C000003786 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		491F128E29829EF0003BB488 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				491F128D29829EF0003BB488 /* ja */,
+				491F128F29829EF8003BB488 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		497D73A22728BB0F003EEA35 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				497D73A32728BB0F003EEA35 /* Base */,
+				49D4B31E29808C3500E3056D /* ja */,
+				491F12822981DB57003BB488 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -314,6 +344,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				497D73A82728BB16003EEA35 /* Base */,
+				49D4B31F29808C3700E3056D /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -325,6 +356,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -358,6 +390,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -372,7 +405,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -386,6 +419,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -419,6 +453,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -427,7 +462,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -444,17 +479,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.0.1;
+				CURRENT_PROJECT_VERSION = 2.0.2;
 				DEVELOPMENT_TEAM = ZC259YH7LZ;
 				INFOPLIST_FILE = TrumpCardApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 2.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kazucode2.TrumpCardApp220603;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -467,17 +503,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.0.1;
+				CURRENT_PROJECT_VERSION = 2.0.2;
 				DEVELOPMENT_TEAM = ZC259YH7LZ;
 				INFOPLIST_FILE = TrumpCardApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 2.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kazucode2.TrumpCardApp220603;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

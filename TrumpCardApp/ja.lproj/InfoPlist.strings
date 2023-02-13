@@ -1,0 +1,13 @@
+/* 
+  InfoPlist.strings
+  TrumpCardApp
+
+  Created by Misawa Kazushi on 2023/02/04.
+  
+*/
+NSCameraUsageDescription = "写真を撮るにはカメラへのアクセスが必要です。";
+NSPhotoLibraryUsageDescription = "写真を取得するにはフォトライブラリへのアクセスが必要です。";
+
+NSUserTrackingUsageDescription = "お客様の興味関心に合わせた広告を表示するために利用します";
+
+CFBundleDisplayName = "トランプゲーム";

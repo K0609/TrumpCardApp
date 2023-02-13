@@ -1,0 +1,48 @@
+/* 
+  Localizable.strings
+  TrumpCardApp
+
+  Created by Misawa Kazushi on 2023/01/26.
+  
+*/
+"ノーマルモード" = "NOMAL MODE";
+"キングスカップモード" = "KING's CUP MODE";
+"もろちん!!" = "Sure!!";
+"そうする!" = "Yes!";
+"やめとく" = "Cancel";
+"オリジナルカード" = "Your Original Cards";
+"カメラ" = "Camera";
+"ライブラリ" = "Library";
+"キャンセル" = "Cancel";
+"ここに文字もいれられるよう" = "Text";
+"全部使う" = "Use All";
+"全部使わない" = "Clear All";
+"タップして使うカードを選ぶ" = "Tap & Select for Use";
+
+"罰ゲームのお題を決め、まず自分がその罰を受ける。\nその後他の全員に同じ罰を下す。" = "Decide on the subject of the punishment game, and then first take the punishment yourself. \nAfter that, all other players take the same punishment.";
+
+"誰か1人を指名し、罰を下す。" = "Pick a player and punish him or her.";
+
+"罰を受ける。" = "Take punishment.";
+
+"女の子全員罰を受けて。" = "Girls, would you take your punishment?";
+
+"次の５が引かれるまでサムマスターになる。\nその間1度だけ、ゲーム中好きな時に机や床に親指を置ける。サムマスターが親指を置いたら他の人はすぐに親指を同じように置かなくてはいけない。\n最後まで気づかなかった人が罰を受ける。" = "Be a Thumbmaster until the next 5 is drawn. \nThe Thumbmaster can place his or her thumb on the desk or floor whenever he or she wishes during the game, but only once during that time. As soon as the Thumbmaster places his thumb, the others must do the same. \nThe last person to place his/her thumb is punished.";
+
+"野郎共全員罰を受けろ。" = "Guys, all of you must be punished.";
+
+"みんな両手を上げて天に祈りを捧げる。\n一番遅かった不届き者が罰を受ける。" = "Everyone raises their hands to heaven and prays quickly. \nThe last infidel is punished.";
+
+"自分のメイトとなる誰か1人指名し、運命共同体を結成する。\n今後ゲーム中にメイトが罰を受ける時、もう一方のメイトも罰を受ける。\n次の運命共同体が結成されたら解消。" = "Pick other player to be your mate. \nWhen a mate is punished during the game, the other mate is also punished. \nMate continues until the next 8 is drawn.";
+
+"全員でリズム4ゲームを行う。\n \n ▼01. まず各プレイヤーの呼び名(2音)を確認する。\n ▼02. 全員で『{親の呼び名}、から、はじ、まる、リズ、ムに、合わ、せて（8拍）』の掛け声でゲームスタート（この時、手を使って4拍子のリズムを取る。1拍目:両手で机を叩く/2拍目:手拍手/3拍目:右手を握る/4拍目:左手を握る）。 \n ▼03. 親は次の4拍中で、3拍目に他プレイヤーの呼び名、4拍目に1~4の数字をコールする。 \n ▼04. 呼ばれたプレイヤーは、次の4拍のリズムに合わせて指定された回数分だけ自分の呼び名を繰り返す。ただし、指定回数が1なら4拍目に、2なら3・4拍目に、3なら2・3・4拍目に、4なら1・2・3・4拍目に言う。次の4拍中で、03.と同様に他プレイヤーと数字をコールする。 \n ▼05. 以後繰り返す。間違えたら罰を受ける。" = "Play Rhythm 4 game. \n ▼01. First, confirm each player's name (2 tones). \n ▼02. All players start the game by calling out 『Game, Starting, with, {player's name (who drew the card; ex. player A)}, play, to, the, rhythm (8 beats)』 (at this time, all players use hands to keep the 4-beat rhythm: beat 1: tap the desk with both hands / beat 2: clap hands / beat 3: hold right hand / beat 4: hold left hand). \n ▼03. During the next four beats, the player A calls the other player's name (ex. player B) on the third beat and a number 1~4 on the fourth beat. \n ▼04. The player B repeats his/her name for the specified number of times in the rhythm of the next four beats. Note, if the specified number is 1, call it on beat 4; if 2, on beats 3 and 4; if 3, on beats 2, 3 and 4; and if 4, on beats 1, 2, 3 and 4. During the next four beats, call the other player's name and number as in 03. \n ▼05. Repeat after that. The player who makes a mistake is punished.";
+
+"全員で山手線ゲームを行う。\n \n親が『お題』を決め、親から時計回りにそのお題に該当する答えをテンポよく答えていく。\n答えを言えない/答えが間違っている/答えが被るetc.したら罰を受ける。\nこのとき、答えが被った場合は、答えを被せられたプレイヤーも罰を受ける。" = "Play Yamanote Line Game. \nYou decide the 'topic', and all players have to say {answer} corresponding to the topic one by one in clockwise. Keep the rythme like : 'clap, clap, {answer}', 'clap, clap, {answer}', 'clap, clap, {answer}', and so on.\nTake punishment when cannot say anything, the answer is wrong, the answer has been already given, or out of time with the rhythm, etc.";
+
+"ルールを作る。\n今後ゲーム中にそのルールを破った者は罰を受ける。" = "Make a rule. \nAnyone who breaks that rule during a subsequent game is punished.";
+
+"次のQが引かれるまでクエスチョンマスターになる。\nその間、他のプレイヤーはクエスチョンマスターの質問に答えた場合、罰を受ける。\nただし、質問は何度でも可能。" = "Be a Question Master until the next Q is drawn. \nDuring this time, other players are punished if they respond to the Question Master's questions. \nNote, the Question Master can ask a question as many times as he/she wants.";
+
+"王の盃を用意する。\n1~3枚目のKを引いた場合、その盃に好きな飲み物を好きなだけ注ぐ。\n最後の4枚目のKを引いた者が王となり、前の3人が注いだ王の盃を飲み干す。\n\nゲーム終了。" = "The player who drews first~third K pours some of your drink into the KING's CUP. \nThe player who draws the fourth K will be a 'KING' and drinks up the entire KING's CUP!";
+
+"何をしてもおk" = "Do whatever you want";

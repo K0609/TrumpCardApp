@@ -104,10 +104,10 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate,
         addBannerViewToView(bannerView)
         
         //GADBannerVIewのプロバティ
-        //リリース用広告ID
-        bannerView.adUnitID = "ca-app-pub-2076115814043994/7340909484"
-//        //テスト用広告ID
-//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+//        //リリース用広告ID
+//        bannerView.adUnitID = "ca-app-pub-2076115814043994/7340909484"
+        //テスト用広告ID
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         bannerView.rootViewController = self
         
         //広告を読み込む
@@ -117,7 +117,7 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate,
         bannerView.delegate = self
         
         // ナビゲーションタイトル
-        self.navigationItem.title = "Setting"
+        self.navigationItem.title = NSLocalizedString("タップして使うカードを選ぶ", comment: "")
         // ナビゲーションバーのテキストを変更する
         self.navigationController?.navigationBar.titleTextAttributes = [
         // 文字の色
@@ -470,7 +470,7 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate,
         let alert = UIAlertController(title: "Card Setting", message: "使う？使わない？", preferredStyle: .alert)
         
         //SelectAllボタンを作成
-        let sellectAll = UIAlertAction(title: "Sellect all", style: .default, handler: { (action) -> Void in
+        let sellectAll = UIAlertAction(title: NSLocalizedString("全部使う", comment: ""), style: .default, handler: { (action) -> Void in
             //すべてのカードのuseをtrueにする
             for i in 0..<self.imageViewsListWithoutCustomize.count {
                 self.imageViewsListWithoutCustomize[i].alpha = 1
@@ -482,7 +482,7 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate,
         })
         
         //ClearAllボタンを作成
-        let clearAll = UIAlertAction(title: "Clear all", style: .default, handler: { (action) -> Void in
+        let clearAll = UIAlertAction(title: NSLocalizedString("全部使わない", comment: ""), style: .default, handler: { (action) -> Void in
             //すべてのカードのuseをfalseにする
             for i in 0..<self.imageViewsListWithoutCustomize.count {
                 self.imageViewsListWithoutCustomize[i].alpha = 0.2
@@ -494,7 +494,7 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate,
         })
         
         //キャンセルボタンの作成
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
+        let cancel = UIAlertAction(title: NSLocalizedString("やめとく", comment: ""), style: .cancel, handler: { (action) -> Void in
             print("Cancel button tapped")
         })
         
@@ -595,7 +595,7 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate,
         let alert = UIAlertController(title: "Card Setting", message: "使う？使わない？", preferredStyle: .alert)
         
         //SelectAllボタンを作成
-        let sellectAll = UIAlertAction(title: "Sellect all", style: .default, handler: { (action) -> Void in
+        let sellectAll = UIAlertAction(title: NSLocalizedString("全部使う", comment: ""), style: .default, handler: { (action) -> Void in
 //            カスタマイズカードをすべてオンにする処理
 //            //すべてのカードのuseをtrueにする
 //            for i in 0..<self.imageViewsListWithoutCustomize.count {
@@ -605,7 +605,7 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate,
         })
         
         //ClearAllボタンを作成
-        let clearAll = UIAlertAction(title: "Clear all", style: .default, handler: { (action) -> Void in
+        let clearAll = UIAlertAction(title: NSLocalizedString("全部使わない", comment: ""), style: .default, handler: { (action) -> Void in
 //            カスタマイズカードをすべてオフにする処理
 //            //すべてのカードのuseをfalseにする
 //            for i in 0..<self.imageViewsListWithoutCustomize.count {
@@ -615,7 +615,7 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate,
         })
         
         //キャンセルボタンの作成
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
+        let cancel = UIAlertAction(title: NSLocalizedString("やめとく", comment: ""), style: .cancel, handler: { (action) -> Void in
             print("Cancel button tapped")
         })
         

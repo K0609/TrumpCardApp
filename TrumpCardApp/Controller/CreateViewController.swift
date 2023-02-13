@@ -41,10 +41,10 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         addBannerViewToView(bannerView)
         
         //GADBannerVIewのプロバティ
-        //リリース用広告ID
-        bannerView.adUnitID = "ca-app-pub-2076115814043994/7340909484"
-//        //テスト用広告ID
-//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+//        //リリース用広告ID
+//        bannerView.adUnitID = "ca-app-pub-2076115814043994/7340909484"
+        //テスト用広告ID
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         bannerView.rootViewController = self
         
         //広告を読み込む
@@ -85,7 +85,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         //
 //        textField.backgroundColor = UIColor.systemGray
-        textField.placeholder = "ここに文字もいれられるよう"
+        textField.placeholder = NSLocalizedString("ここに文字もいれられるよう", comment: "")
         
         //各Delegateの設定
         textField.delegate = self
@@ -108,7 +108,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.viewDidAppear(animated)
 
         if (nowCropping == false && currentImage == nil) {
-            showAlert(alertTitle: "Make your original card!!", alertMessage: "カード作っちゃお!!")
+            showAlert(alertTitle: "Make your original card!!", alertMessage: "オリジナルカード作っちゃお!!")
 
         }
     }
@@ -183,7 +183,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     func showPhotoAlert () {
         
         let alert = UIAlertController(title: "No image selected!!", message: "画像が選択されていませんわよ！！", preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
+        let cancel = UIAlertAction(title: NSLocalizedString("キャンセル", comment: ""), style: .cancel, handler: { (action) -> Void in
             print("Cancel button tapped")
         })
         
@@ -198,7 +198,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         if sender.state == .ended {
             
-            showAlert(alertTitle: "Make your original card!!", alertMessage: "カード作っちゃお!!")
+            showAlert(alertTitle: "Make your original card!!", alertMessage: "オリジナルカード作っちゃお!!")
         
         }
     }
@@ -208,17 +208,17 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         
-        let camera = UIAlertAction(title: "Camera", style: .default, handler: { (action) -> Void in
+        let camera = UIAlertAction(title: NSLocalizedString("カメラ", comment: ""), style: .default, handler: { (action) -> Void in
             let sourceType: UIImagePickerController.SourceType = .camera //カメラ機能を立ち上げる設定
             self.createImagePicker(sourceType: sourceType) //立ち上げ
         })
         
-        let album = UIAlertAction(title: "Album", style: .default, handler: { (action) -> Void in
+        let album = UIAlertAction(title: NSLocalizedString("ライブラリ", comment: ""), style: .default, handler: { (action) -> Void in
             let sourceType: UIImagePickerController.SourceType = .photoLibrary //アルバム機能を立ち上げる設定
             self.createImagePicker(sourceType: sourceType) //立ち上げ
         })
         
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
+        let cancel = UIAlertAction(title: NSLocalizedString("キャンセル", comment: ""), style: .cancel, handler: { (action) -> Void in
             print("Cancel button tapped")
         })
         
