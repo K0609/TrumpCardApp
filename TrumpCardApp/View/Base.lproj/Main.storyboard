@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r8a-2t-elC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r8a-2t-elC">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -53,7 +54,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="nFI-PJ-B6h" firstAttribute="top" secondItem="eCL-oR-NtU" secondAttribute="bottom" constant="10" id="2az-DZ-nMa"/>
-                            <constraint firstItem="eCL-oR-NtU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-50" id="30e-f2-7t6"/>
+                            <constraint firstItem="eCL-oR-NtU" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="30e-f2-7t6"/>
                             <constraint firstItem="nFI-PJ-B6h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="EFO-yv-wDJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sXp-FB-bNH" secondAttribute="bottom" constant="60" id="Mvz-uH-eaP"/>
                             <constraint firstItem="eCL-oR-NtU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="P8V-4g-Xb0"/>
@@ -62,7 +63,7 @@
                             <constraint firstItem="eCL-oR-NtU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="XRl-rj-34o"/>
                             <constraint firstItem="eCL-oR-NtU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-20" id="bzD-yh-z7R"/>
                             <constraint firstItem="sXp-FB-bNH" firstAttribute="top" secondItem="nFI-PJ-B6h" secondAttribute="bottom" constant="10" id="jCH-Nz-J8a"/>
-                            <constraint firstItem="eCL-oR-NtU" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.5" id="mWc-9a-lSG"/>
+                            <constraint firstItem="eCL-oR-NtU" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.4" id="mWc-9a-lSG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="nFI-PJ-B6h" secondAttribute="bottom" constant="60" id="rr1-at-uox"/>
                             <constraint firstItem="sXp-FB-bNH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ub7-46-99V"/>
                         </constraints>
@@ -119,8 +120,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="KCModeCardViewCenterY" destination="30e-f2-7t6" id="03o-RA-H1m"/>
-                        <outlet property="KCModeCardViewHight" destination="mWc-9a-lSG" id="Gjs-EQ-wQc"/>
+                        <outlet property="KCModeCardViewBottom" destination="30e-f2-7t6" id="oHZ-ml-K4K"/>
+                        <outlet property="KCModeCardViewWidth" destination="mWc-9a-lSG" id="7aa-6j-0Hz"/>
                         <outlet property="NModeCardViewCenterY" destination="bzD-yh-z7R" id="lMV-h1-5xK"/>
                         <outlet property="cardView" destination="eCL-oR-NtU" id="oCE-EM-ngZ"/>
                         <outlet property="modeButton" destination="gIY-qK-EHw" id="ud0-Ju-8lz"/>
@@ -163,7 +164,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Iun-Ys-Q5J">
-                                <rect key="frame" x="0.0" y="98" width="414" height="754"/>
+                                <rect key="frame" x="0.0" y="102" width="414" height="750"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lOK-dS-YoH">
                                     <size key="itemSize" width="128" height="128"/>
@@ -269,7 +270,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r8a-2t-elC" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="o1H-pc-eP0">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -284,13 +285,13 @@
     </scenes>
     <resources>
         <image name="SelectImage" width="714" height="1075"/>
-        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
-        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="delete.left" catalog="system" width="128" height="104"/>
-        <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="delete.left" catalog="system" width="128" height="102"/>
+        <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="ura" width="1012" height="1618"/>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

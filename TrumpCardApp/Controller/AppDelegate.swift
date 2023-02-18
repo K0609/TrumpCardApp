@@ -26,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Use Firebase library to configure APIs.
         FirebaseApp.configure()
+        
+        // Mobile Ads SDKの初期化
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
                 
         return true
     }

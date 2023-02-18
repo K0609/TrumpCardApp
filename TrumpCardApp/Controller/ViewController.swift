@@ -7,7 +7,7 @@
 import GoogleMobileAds
 import UIKit
 
-class ViewController: UIViewController, GADBannerViewDelegate {
+class ViewController: UIViewController, GADBannerViewDelegate, GADFullScreenContentDelegate {
 
     @IBOutlet weak var cardView: UIButton!
     @IBOutlet weak var shuffleButton: UIButton!
@@ -16,8 +16,8 @@ class ViewController: UIViewController, GADBannerViewDelegate {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var modeButton: UIButton!
     
-    @IBOutlet weak var KCModeCardViewHight: NSLayoutConstraint!
-    @IBOutlet weak var KCModeCardViewCenterY: NSLayoutConstraint!
+    @IBOutlet weak var KCModeCardViewWidth: NSLayoutConstraint!
+    @IBOutlet weak var KCModeCardViewBottom: NSLayoutConstraint!
     @IBOutlet weak var NModeCardViewCenterY: NSLayoutConstraint!
     
     var cardsList = CardsList() //全カード情報となるcardsListをインスタンス化
@@ -29,8 +29,10 @@ class ViewController: UIViewController, GADBannerViewDelegate {
     var currentCard: CardsModel!
     var currentMode: String = "NOMAL MODE"
     
-    //admobのバナー
+    //Admobのバナー
     var bannerView: GADBannerView!
+    //AdMobのインタースティシャル
+    var interstitial: GADInterstitialAd?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,22 +53,22 @@ class ViewController: UIViewController, GADBannerViewDelegate {
           object: nil
         )
         
-        //バナー
+        //BannerViewを生成しViewにはりつける
         bannerView = GADBannerView(adSize: GADAdSizeBanner)
         addBannerViewToView(bannerView)
         
-        //GADBannerVIewのプロバティ
-        //リリース用広告ID
-        bannerView.adUnitID = "ca-app-pub-2076115814043994/7340909484"
-//        //テスト用広告ID
-//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-        bannerView.rootViewController = self
-        
-        //広告を読み込む
-        bannerView.load(GADRequest())
-        
+        //GADBannerViewのプロバティ
+        if let id = adUnitID(key: "bannerID") {
+            bannerView.adUnitID = id
+            bannerView.rootViewController = self
+            bannerView.load(GADRequest())
+        }
+
         //広告イベント
         bannerView.delegate = self
+        
+        // インタースティシャル広告を作成し読み込む
+        createAndLoadInterstitial()
         
         
         //　ナビゲーションバーの背景色
@@ -101,7 +103,7 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         textLabel.isHidden = true
         
         //textViewの見た目を整える
-        textView.font = UIFont(name: "Futura-Medium", size: 14)
+        textView.font = UIFont(name: "Futura-Medium", size: 16)
         textView.backgroundColor = .clear
         textView.isHidden = true
         textView.text = ""
@@ -313,6 +315,7 @@ class ViewController: UIViewController, GADBannerViewDelegate {
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         
         let defaultAction = UIAlertAction(title: defaultTitle, style: .default, handler: { (action) -> Void in
+            self.displayInterStitial()
             self.resetGame()
         })
         
@@ -347,16 +350,23 @@ class ViewController: UIViewController, GADBannerViewDelegate {
     func layout(currentMode: String) {
         
         if currentMode == "NOMAL MODE" {
-            NSLayoutConstraint.deactivate([KCModeCardViewHight, KCModeCardViewCenterY])
+            NSLayoutConstraint.deactivate([KCModeCardViewWidth, KCModeCardViewBottom])
             NSLayoutConstraint.activate([NModeCardViewCenterY])
            
         } else if currentMode == "KING's CUP MODE" {
             NSLayoutConstraint.deactivate([NModeCardViewCenterY])
-            NSLayoutConstraint.activate([KCModeCardViewHight, KCModeCardViewCenterY])
+            NSLayoutConstraint.activate([KCModeCardViewWidth, KCModeCardViewBottom])
 
         }
     }
-    
+
+    // info.plistから広告IDを取得して返す関数
+    func adUnitID(key: String) -> String? {
+        guard let adUnitIDs = Bundle.main.object(forInfoDictionaryKey: "AdUnitIDs") as? [String: String] else {
+            return nil
+        }
+        return adUnitIDs[key]
+    }
     
     //バナー
     func addBannerViewToView(_ bannerView: GADBannerView) {
@@ -403,5 +413,46 @@ class ViewController: UIViewController, GADBannerViewDelegate {
     func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
 //      print("bannerViewDidDismissScreen")
     }
+    
+    
+    // インタースティシャル広告を作成し読み込むメソッド
+    func createAndLoadInterstitial(){
+        if let id = adUnitID(key: "interstitialID") {
+            GADInterstitialAd.load(withAdUnitID: id, request: GADRequest()) { [weak self] (ad, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+                self?.interstitial = ad
+                self?.interstitial?.fullScreenContentDelegate = self
+            }
+        }
+    }
+    
+    // インタースティシャル広告の実行するメソッド
+    func displayInterStitial() {
+        if interstitial != nil {
+            self.interstitial?.present(fromRootViewController: self)
+        } else {
+          print("Ad wasn't ready")
+        }
+    }
+    
+    // 各種インタースティシャル広告の設定
+    /// Tells the delegate that the ad failed to present full screen content.
+    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+      print("Ad did fail to present full screen content.")
+    }
+
+    /// Tells the delegate that the ad will present full screen content.
+    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+      print("Ad will present full screen content.")
+    }
+
+    /// Tells the delegate that the ad dismissed full screen content.
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        createAndLoadInterstitial()
+        print("Ad did dismiss full screen content.")
+    }
+    
 }
 

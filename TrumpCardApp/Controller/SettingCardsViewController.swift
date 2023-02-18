@@ -96,22 +96,24 @@ class SettingCardsViewController: UIViewController, UIGestureRecognizerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
-        //バナー
+        //BannerViewを生成しViewにはりつける
         bannerView = GADBannerView(adSize: GADAdSizeBanner)
         addBannerViewToView(bannerView)
         
-        //GADBannerVIewのプロバティ
-        //リリース用広告ID
-        bannerView.adUnitID = "ca-app-pub-2076115814043994/7340909484"
-//        //テスト用広告ID
-//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-        bannerView.rootViewController = self
-        
-        //広告を読み込む
-        bannerView.load(GADRequest())
+        //GADBannerViewのプロバティ
+        if let id = adUnitID(key: "bannerID") {
+            bannerView.adUnitID = id
+            bannerView.rootViewController = self
+            bannerView.load(GADRequest())
+        }
+        // info.plistから広告IDを取得して返す関数
+        func adUnitID(key: String) -> String? {
+            guard let adUnitIDs = Bundle.main.object(forInfoDictionaryKey: "AdUnitIDs") as? [String: String] else {
+                return nil
+            }
+            return adUnitIDs[key]
+        }
         
         //広告イベント
         bannerView.delegate = self
